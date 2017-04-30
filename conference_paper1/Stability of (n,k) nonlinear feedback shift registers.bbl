@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+
+\bibitem{Dubrova2008On}
+E.~Dubrova, M.~Teslenko, and H.~Tenhunen, ``On analysis and synthesis of
+  (n,k)-non-linear feedback shift registers,'' {\em Design Automation \& Test
+  in Europe}, pp.~1286--1291, 2008.
+
+\bibitem{Cheng2011Analysis}
+D.~Cheng, H.~Qi, and Z.~Li, {\em Analysis and Control of {Boolean} Networks}.
+\newblock Springer London, 2011.
+
+\bibitem{Zhong2014Stability}
+J.~Zhong and D.~Lin, ``Stability of nonlinear feedback shift registers,'' in
+  {\em IEEE International Conference on Information and Automation},
+  pp.~671--676, 2014.
+
+\end{thebibliography}

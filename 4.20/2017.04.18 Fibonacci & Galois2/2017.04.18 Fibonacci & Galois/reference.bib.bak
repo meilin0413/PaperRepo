@@ -1,0 +1,263 @@
+@article{Dubrova2010Finding,
+  title={Finding matching initial states for equivalent {NLFSRs} in the {Fibonacci} and the {Galois} configurations},
+  author={Dubrova, Elena},
+  journal={IEEE Transactions on Information Theory},
+  volume={56},
+  number={6},
+  pages={2961-2966},
+  year={2010},
+}
+@article{Zhong2016Driven,
+  title={{Driven} Stability of Nonlinear Feedback Shift Registers With Inputs},
+  author={Zhong, Jianghua and Lin, Dongdai},
+  journal={IEEE Transactions on Communications},
+  volume={64},
+  number={6},
+  pages={2274-2284},
+  year={2016},
+}
+@article{Dubrova2009A,
+  title={A Transformation From the Fibonacci to the Galois {NLFSRs}},
+  author={Dubrova, Elena},
+  journal={IEEE Transactions on Information Theory},
+  volume={55},
+  number={11},
+  pages={5263-5271},
+  year={2009},
+}
+@article{zhiqiang2013transformation,
+  title={The transformation from the {Galois} {NLFSR} to the {Fibonacci} configuration},
+  author={Lin, Zhiqiang},
+  journal={Emerging Intelligent Data and Web Technologies (EIDWT), 2013 Fourth International Conference on},
+  pages={335--339},
+  year={2013},
+  organization={IEEE}
+}
+@book{Bondy1976Graph,
+  title={Graph theory with applications },
+  author={Bondy, J. A. and Murty, U. S. R.},
+  publisher={Macmillan,},
+  pages={237-238},
+  year={1976},
+}
+@book{Cheng2011Analysis,
+  title={Analysis and Control of {Boolean} Networks},
+  author={Cheng, Daizhan and Qi, Hongsheng and Li, Zhiqiang},
+  publisher={Springer London},
+  year={2011},
+}
+@article{Zhong2014A,
+  title={A new linearization method for nonlinear feedback shift registers},
+  author={Zhong, Jianghua and Lin, Dongdai},
+  journal={Journal of Computer System Sciences},
+  volume={81},
+  number={4},
+  pages={783-796},
+  year={2014},
+}
+@book{goresky2012algebraic,
+  title={Algebraic shift register sequences},
+  author={Goresky, Mark and Klapper, Andrew},
+  year={2012},
+  publisher={Cambridge University Press}
+}
+
+@book{golomb1982shift,
+  title={Shift register sequences},
+  author={Golomb, Solomon W and others},
+  year={1982},
+  publisher={Aegean Park Press}
+}
+@article{massey1969shift,
+  title={Shift-register synthesis and {BCH} decoding},
+  author={Massey, James},
+  journal={IEEE transactions on Information Theory},
+  volume={15},
+  number={1},
+  pages={122--127},
+  year={1969},
+  publisher={IEEE}
+}
+@article{meier1989fast,
+  title={Fast correlation attacks on certain stream ciphers},
+  author={Meier, Willi and Staffelbach, Othmar},
+  journal={Journal of Cryptology},
+  volume={1},
+  number={3},
+  pages={159--176},
+  year={1989},
+  publisher={Springer}
+}
+@article{hell2007grain,
+  title={Grain: a stream cipher for constrained environments},
+  author={Hell, Martin and Johansson, Thomas and Meier, Willi},
+  journal={International Journal of Wireless and Mobile Computing},
+  volume={2},
+  number={1},
+  pages={86--93},
+  year={2007},
+  publisher={Inderscience Publishers}
+}
+@article{gammel2006nlfsr,
+  title={An {NLFSR}-based stream cipher},
+  author={Gammel, Berndt M and Gottfert, Rainer and Kniffler, Oliver},
+  journal={IEEE International Symposium on Circuits and Systems},
+  pages={4--pp},
+  year={2006},
+  organization={IEEE}
+}
+@article{chen2004dragon,
+  title={Dragon: A fast word based stream cipher},
+  author={Chen, Kevin and Henricksen, Matt and Millan, William and Fuller, Joanne and Simpson, Leonie and Dawson, Ed and Lee, HoonJae and Moon, SangJae},
+  journal={International Conference on Information Security and Cryptology},
+  pages={33--50},
+  year={2004},
+  organization={Springer}
+}
+@article{gammel2007achterbahn,
+  title={Achterbahn-128/80: Design and analysis},
+  author={Gammel, Berndt and G{\"o}ttfert, Rainer and Kniffler, Oliver},
+  journal={ECRYPT Network of Excellence-SASC Workshop Record},
+  pages={152--165},
+  year={2007}
+}
+@article{dawei2014novel,
+  title={Novel way to research nonlinear feedback shift register},
+  author={Zhao, Dawei and Peng, HaiPeng and Li, LiXiang and Hui, SiLi and Yang, YiXian},
+  journal={Science China Information Sciences},
+  volume={57},
+  number={9},
+  pages={92114--092114},
+  year={2014}
+}
+@article{Liu2015Nonsingularity,
+  title={Nonsingularity of feedback shift registers},
+  author={Liu, Zhenbin and Wang, Yuzhen and Cheng, Daizhan},
+  journal={Automatica},
+  volume={55},
+  number={C},
+  pages={247-253},
+  year={2015},
+}
+@article{Zhong2014Stability,
+  title={Stability of nonlinear feedback shift registers},
+  author={Zhong, Jianghua and Lin, Dongdai},
+  journal={IEEE International Conference on Information and Automation},
+  year={2014},
+}
+
+@article{lu2016controllability,
+  title={On Controllability of Delayed {Boolean} Control Networks},
+  author={Lu, Jianquan and Zhong, Jie and Ho, Daniel WC and Tang, Yang and Cao, Jinde},
+  journal={SIAM Journal on Control and Optimization},
+  volume={54},
+  number={2},
+  pages={475--494},
+  year={2016},
+  publisher={SIAM}
+}
+@article{lu2016pinning,
+  title={On pinning controllability of {Boolean} control networks},
+  author={Lu, Jianquan and Zhong, Jie and Huang, Chi and Cao, Jinde},
+  journal={IEEE Transactions on Automatic Control},
+  volume={61},
+  number={6},
+  pages={1658--1663},
+  year={2016},
+  publisher={IEEE}
+}
+@article{zhong2014synchronization,
+  title={Synchronization in an array of output-coupled {Boolean} networks with time delay},
+  author={Zhong, Jie and Lu, Jianquan and Liu, Yang and Cao, Jinde},
+  journal={IEEE Transactions on Neural Networks and Learning Systems},
+  volume={25},
+  number={12},
+  pages={2288--2294},
+  year={2014},
+  publisher={IEEE}
+}
+@article{li2011controllability,
+  title={Controllability of {Boolean} control networks with time delays in states},
+  author={Li, Fangfei and Sun, Jitao},
+  journal={Automatica},
+  volume={47},
+  number={3},
+  pages={603--607},
+  year={2011},
+  publisher={Elsevier}
+}
+@article{cheng2009controllability,
+  title={Controllability and observability of {Boolean} control networks},
+  author={Cheng, Daizhan and Qi, Hongsheng},
+  journal={Automatica},
+  volume={45},
+  number={7},
+  pages={1659--1667},
+  year={2009},
+  publisher={Elsevier}
+}
+@article{cheng2010linear,
+  title={A linear representation of dynamics of {Boolean} networks},
+  author={Cheng, Daizhan and Qi, Hongsheng},
+  journal={IEEE Transactions on Automatic Control},
+  volume={55},
+  number={10},
+  pages={2251--2258},
+  year={2010},
+  publisher={IEEE}
+}
+@article{cheng2011stability,
+  title={Stability and stabilization of {Boolean} networks},
+  author={Cheng, Daizhan and Qi, Hongsheng and Li, Zhiqiang and Liu, Jiang B},
+  journal={International Journal of Robust and Nonlinear Control},
+  volume={21},
+  number={2},
+  pages={134--156},
+  year={2011},
+  publisher={Wiley Online Library}
+}
+@article{laschov2012controllability,
+  title={Controllability of {Boolean} control networks via the Perron--Frobenius theory},
+  author={Laschov, Dmitriy and Margaliot, Michael},
+  journal={Automatica},
+  volume={48},
+  number={6},
+  pages={1218--1223},
+  year={2012},
+  publisher={Elsevier}
+}
+@inproceedings{guo2013semi,
+  title={A semi-tensor product approach to finding {Nash} equilibria for static games},
+  author={Guo, Peilian and Wang, Yuzhen and Li, Haitao},
+  booktitle={Control Conference (CCC), 2013 32nd Chinese},
+  pages={107--112},
+  year={2013},
+  organization={IEEE}
+}
+@article{li2015output,
+  title={Output tracking control of {Boolean} control networks via state feedback: Constant reference signal case},
+  author={Li, Haitao and Wang, Yuzhen and Xie, Lihua},
+  journal={Automatica},
+  volume={59},
+  pages={54--59},
+  year={2015},
+  publisher={Elsevier}
+}
+@article{Li2015Controllability,
+  title={Controllability Analysis and Control Design for Switched {Boolean} Networks with State and Input Constraints},
+  author={Li, Haitao and Wang, Yuzhen},
+  journal={Siam Journal on Control & Optimization},
+  volume={53},
+  number={5},
+  pages={2955-2979},
+  year={2015},
+}
+@article{Liu2016Sampled,
+  title={Sampled-Data State Feedback Stabilization of {Boolean} Control Networks},
+  author={Liu, Y. and Cao, J. and Sun, L. and Lu, J.},
+  journal={Neural Computation},
+  volume={28},
+  number={4},
+  pages={778},
+  year={2016},
+}

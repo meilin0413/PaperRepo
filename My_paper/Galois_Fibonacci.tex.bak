@@ -1,0 +1,353 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+
+%\documentclass[twocolumn,journal]{IEEEtran}
+\documentclass[twocolumn,journal]{IEEEtran}
+%\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment t                                                      his line out
+                                                          % if you need a4paper
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4
+                                                          % paper
+
+\IEEEoverridecommandlockouts                           % This command is only
+                                                          % needed if you want to
+                                                          % use the \thanks command
+\overrideIEEEmargins
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{Assumption}
+\newtheorem{hypothesis}{Hypothesis}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{notation}{Notation}
+\newtheorem{algorithm}{Algorithm}
+%\newcommand{\for}{\textbf{for}}
+%\newcommand{\STATE}{\quad}
+
+% The following packages can be found on http:\\www.ctan.org
+\usepackage{graphicx}
+\usepackage{subfig}% for pdf, bitmapped graphics files
+\usepackage{epsfig} % for postscript graphics files
+\usepackage{mathptmx} % assumes new font selection scheme installed
+\usepackage{times} % assumes new font selection scheme installed
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\title{\LARGE \bf
+The Transform between the Galois NLFSR and Fibonacci NLFSR}
+
+%\author{Jianquan Lu$^*$, J\"{u}rgen K urths, Jinde Cao, \IEEEmembership{}
+\author{
+\thanks{{\tt\small }}%
+\thanks{ {\tt }}
+\thanks{ {\tt\small }}
+\thanks{}
+\thanks{}
+\thanks{} }
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+In this brief, the Galois nonlinear feedback shift register (NLFSR) and Fibonacci NLFSR  are regarded as two boolean network, and semi-tensor product of matrices is used to convert these two NLFSR into two equivalent algebraic equation. Based on this, a novel way proposed to investigate the transform between the Galois NLFSR and Fibonacci NLFSR.First, the property of uniform NLFSR has been investigate. Second, two bijection $\Phi,\Psi$ between uniform Galois NLFSR and Fibonacci NLFSR obtained. Third, two algorithms are provided to achieve the transform between the Galois NLFSR and Fibonacci NLFSR. Compared with other method, the method provided in this paper is easier to achieve.
+\end{abstract}
+
+\begin{index}
+a
+\end{index}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{INTRODUCTION}
+Pseudo-random sequence as a signal form with good correlation properties  are extensively used in many application, such as secure communication, BER instrumentation, delay measurement and noise and  spread Spectrum Communication generator. The linear feedback shift registers (LFSRs) is the one of most popular configuration for generating pseudo-random sequences%\cite{goresky2012algebraic}\cite{golomb1982shift}
+The feedback shift registers (FSRs) are
+
+\section{Preliminaries}
+\begin{definition}
+Let$A\in\mathbb{R}^{n\times m}$, $B\in \mathbb{R}^{p\times q}$. The $semi-tensor product$ of $A$ and $B$ is
+\begin{equation}
+A\ltimes B=(A\otimes I_{\frac{l}{m})}(B\otimes I_{\frac{l}{p}})
+\end{equation}
+where $l$ is the least common multiple of $m$ and $p$.
+\end{definition}
+
+\begin{lemma}%引用的
+Any boolean function $f(x_1,x_2,...,x_n)$with variables $x_1,x_2,...,x_n\in \Delta_2$ can beexpressed as a multi-linear form:
+\begin{equation}
+f(x_1,x_2,...,x_n)=Fx_1x_2...x_n.
+\end{equation}
+where $F$ is called the $structure matrix$ of $f$, and is uniquely expressed as
+\begin{equation}
+F=\left[
+    \begin{array}{cccc}
+      s_1 & s_2 & ... & s_{2^{n}} \\
+      1-s_1 & 1-s_2 & ... & 1-s_{2^n} \\
+    \end{array}
+  \right]
+\end{equation}
+with $[s_1,s_2,...,s_{2^n}]$ being the truth table of f, arranged in the reverse alphabet order.
+\end{lemma}
+An $NLFSR$ consists of n binary memory devices, which is called bits.\\
+An Galois configuration of $NLFSR$ can be described by a system of n nonlinear equations:
+\begin{eqnarray}\label{gnsr}
+ \left\{ \begin{aligned}
+&x_0(t+1)=f_0(x_0(t),x_1(t),...,x_{n-1}(t)),\\
+&x_1(t+1)=f_1(x_0(t),x_1(t),...,x_{n-1}(t)),\\
+&\vdots \\
+&x_{n-2}(t+1)=f_{n-2}(x_0(t),x_1(t),...,x_{n-1}(t)),\\
+&x_{n-1}(t+1)=f_{n-1}(x_0(t),x_1(t),...,x_{n-1}(t)).
+\end{aligned} \right.
+\end{eqnarray}
+where $f_i,i\in{0,1,2...,n-1}$ is boolean function.
+
+An Fibonacci configuration of NLFSR can be described as following equation:
+ \begin{eqnarray}\label{fnsr}
+ \left\{ \begin{aligned}
+&x_0(t+1)=x_1(t),\\
+&x_1(t+1)=x_2(t),\\
+&\vdots \\
+&x_{n-2}(t+1)=x_{n-1}(t),\\
+&x_{n-1}(t+1)=f(x_0(t),x_1(t),...,x_{n-1}(t)).
+\end{aligned} \right.
+\end{eqnarray}
+The Fibonacci $NLFSR$ has an algebraic representation
+\begin{equation}
+x(t+1)=L_{F}x(t), t\in N,
+\end{equation}
+where $x\in\Delta_{2^n}$ is the state, $L_{F}\in \emph{L}_{2^n\times 2^n}$ is the state transition matrix, satisfying
+\begin{equation}\label{b}
+L=\delta_{2^n}\left[
+    \begin{array}{cccccc}
+      q_1 & ... & q_{2^{n-1}} & q_{2^{n-1}+1} & ... & q_{2^n} \\
+    \end{array}
+  \right]
+\end{equation}
+with
+\begin{gather}\label{a}
+ q_i = 2i-\zeta_i \\
+  q_{2^{n-1}+i} = 2i-\zeta_{2^{n-1}+i}
+\end{gather}
+for all $i=1,2,...,2^{n-1}$. \\
+The set $F_{2^n\times 2^n}$ denote all the $2^n\times 2^n$ logic matrix satisfying condition (\ref{b}),(\ref{a}) and (9).
+
+\begin{definition}%引用的
+An n-bit $NLFSR$ is $uniform$ if for some $0\leq\tau<n$:
+\begin{itemize}
+\item $f_i(x)=x_{i+1}$ for $0\leq i<\tau$,
+\item $f_i(x)=x_{(i+1)mod n}\oplus g_i(x_0,...,x_\tau)$ for $\tau \leq n$ where $g_i$ is a nonzero Boolean function.
+ \end{itemize}
+\end{definition}
+
+\begin{definition}%对状态进行定义
+Let $(x_0(t),x_1(t),...,x_{n-1}(t))$ denote the $state$ of $NLFSR$ at time t, where $x_0(t),x_1(t),...,x_{n-1}(t)\in\{0,1\}$.
+\end{definition}
+
+\begin{remark}
+For arbitrary Fibonacci $NLFSR$ is uniform. In this paper, only uniform $NLFSR$ is concerned.
+\end{remark}
+
+\begin{definition}
+ the $state$ $transition$ $graph$ of $NLFSR$ is a directed graph $N$:
+\begin{itemize}
+  \item the vertex set $V(N)$ is the set $\{(i_0,i_1,...,i_{n-1})\sim\delta^{i}_{2^n}|i_0,i_1,...,i_{n-1}\in\{0,1\}\}$.
+  \item the directed edge set $E(N)$ is define as follows: there is an directed edge from $v_i\sim\delta^{i}_{2^n}$ to $v_j\sim\delta^{j}_{2^n}$, if and only if $L\delta^{i}_{2^n}=\delta^{j}_{2^n}$, $v_i$ is called a $predecessor$ of $v_j$, while $v_j$ is called a $succesor$ of $v_i$.
+\end{itemize}
+\end{definition}
+For the fibonacci $NLFSR$, the state which has two $predecessor$ is called a $branch$ $state$.
+For all $NLFSR$, the state without $predecessor$ is called $starting$ $state$.
+\begin{example}
+Given a 3-bit $NLFSR$ $N_1$ with the following equation:
+ \begin{eqnarray}\label{fnsr}
+ \left\{ \begin{aligned}
+&x_0(t+1)=x_1(t)\oplus x_0(t),\\
+&x_1(t+1)=x_2(t),\\
+&x_2(t+1)=x_2(t)\oplus x_1(t).
+\end{aligned} \right.
+\end{eqnarray}
+The state transition graph of $N_1$ show in Fig.\ref{ex1}.
+\begin{figure}
+\centering
+\includegraphics[width=3in]{ex.eps}
+\caption{State transition graph of $N_1$}
+\label{ex1}
+\end{figure}
+\end{example}
+\begin{definition}%引用
+Two graphs $G$ and $H$ are $isomorphic$, written $G\cong H$, if there are bijection $\theta$: $V(G)\rightarrow V(H)$ and $\phi$: $E(G)\rightarrow E(H)$ such that $\psi_G(e)=uv$ if and only if $\psi_H(\phi(e))=\theta(u)\theta(v)$.
+\end{definition}
+\begin{example}
+\begin{figure}
+\centering
+\includegraphics[width=3in]{e13.eps}
+\caption{Isomorphic graphs}
+\label{Isomorphic graphs}
+\end{figure}
+In the Fig.\ref{Isomorphic graphs}, graph $G$ and graph $H$ are isomorphic, the mapping $\theta$ and $\phi$ define by
+\begin{equation*}
+\theta :=\left(
+           \begin{array}{cccc}
+             a & b & c & d \\
+             w & z & y & x \\
+           \end{array}
+         \right)
+\phi :=\left(
+         \begin{array}{cccccc}
+           e_1 & e_2 & e_3 & e_4 & e_5 & e_6 \\
+           f_3 & f_4 & f_1 & f_6 & f_5 & f_2 \\
+         \end{array}
+       \right)
+\end{equation*}
+\end{example}
+\begin{definition}%对0开头的状态和1开头的状态进行定义
+Let $S_0$ denote the set of state$\{(0,x_1,x_2,...,x_{n-1})|x_1,x_2,...,x_{n-1}\in \{0,1\}\}$, and $S_1$ denote the set of states$\{(1,x_1,x_2,...,x_{n-1})|x_1,x_2,...,x_{n-1}\in \{0,1\}\}$.
+\end{definition}
+\begin{definition}
+Two $NLFSRs$ are $equivalent$ if their sets of output sequences are equal, and their $state$ $transition$ $graphs$ are $isomorphic$.
+\end{definition}
+\begin{definition}
+The
+\end{definition}
+
+\section{Main results}
+\begin{theorem}\label{m1}%只是必要条件
+Given a NLFSR $N_1$, the structure matrix of $N_1$ is $L_1$, there exist another different matrix $L_2$ of NLFSR $N_2$, such that the state transition graph of $N_2$ and $N_1$ are $isomorphic$, the output sequences of $N_2$ are same as $N_1$'s.
+\end{theorem}
+\begin{proof}
+First, we need construct a bijection $\Phi:\triangle_{2^n}\rightarrow \triangle_{2^n}$, which is the one-to-one correspondence from states of $(N_1)$ to $N_2$'s.
+%For every state $\delta^i_{2^n}\in \triangle_{2^n}\sim(i_0,i_1,...i_{n-1})$, if $i_0=0$, set $(0,j_1,...,j_{n-1})\sim \delta^j_{2^n}$ as the
+The constructing method named $CM$ as following:\\
+Initialization Set $i:=0$, set $Re:=\triangle_{2^n}$, state transition graph of $(N_2)$ is $ST_2:=(V,E),V=\emptyset , E=\emptyset$.\\
+Recursive step  Set $i=i+1$, $(i_0,i_1,...i_{n-1})\sim \delta^i_{2^n}\in \triangle_{2^n} $ of $(N_1)$.\\
+if $i_0=0$, then one can set $(0,j_1,...j_{n-1})\sim \delta^j_{2^n}\in Re$.\\
+else one can set$(0,j_1,...j_{n-1})\sim \delta^j_{2^n}\in Re$.\\
+Do $V=V\cup\delta^j_{2^n}$, and set $\Phi(\delta^i_{2^n})=\delta^j_{2^n}$, $Re=\triangle_{2^n}\delta^j_{2^n}$.\\
+$E=\{\Phi(u)\Phi(v)|u,v\in V(N_1),uv=e\in E(N_1)\}$, and the matrix $L_2$ has property following:\\ $\{col_i(L_2)=\delta^j_{2^n}|u=\delta^i_{2^n}\sim(i_0,i_1,...,i_{n-1}),v=\delta^j_{2^n}\sim(j_0,j_1,...,j_{n-1}),\Phi^{-1}(u)\Phi^{-1}(v)\in E(N_1)\}$.\\
+From the process of construction of $L_2$, one find a matrix $L_2$ of $N_2$ such that $N_2$ is equivalent to $N_1$.
+\end{proof}
+
+
+\begin{corollary}\label{m2}
+If a $NLFSR$ $N_1$ is equivalent to a $NLFSR$ $N_2$ which is constructed, then the states in sets $S_0$ of these two $NLFSRs$ is one-to-one, and the states in sets $S_1$ of these two $NLFSRs$ is also one-to-one.
+\end{corollary}
+\begin{proof}
+The proof followed by the process of $CM$.
+\end{proof}
+
+\begin{lemma}\label{m3}%引用，关于分支点跟起始点的个数是一样的。
+The number of branch states of a $NLFSR$ is equal to the number of starting state.
+\end{lemma}
+\begin{theorem}\label{GF}
+If a Galois $NLFSR$ $GN$ can be equivalent to a Fibonacci $NLFSR$ $FN$, then for every states of $GN$ has two predecessors at most, and there are at most two equilibrium states of $GN$. If the $GN$ with two equilibrium states $\{e_1,e_2\}$, then $e_1\in S_0$ and $e_2\in S_1$.
+\end{theorem}
+\begin{proof}
+From the lemma (\ref{m1}), the state transition graph of Fibonacci $NLFSR$ and Galois $NLFSR$ are $isomorphic$. Since for every states of Fibonacci $NLFSR$ has two predecessors at most, Galois $NLFSR$ must has the same property(i.e for every states of Galois $NLFSR$ has two predecessors at most).\\
+For the Fibonacci $NLFSR$, the equilibrium states only can be $000...$ or $111...$, if the initial state is equilibrium state, the output sequence is $000...$ or $111...$. By the definition of $equivalent$, the conclusion is obvious.
+\end{proof}
+
+\begin{corollary}
+If a Galois $NLFSR$ is equivalent to a Fibonacci $NLFSR$, the base of $col(L_G)$ denote by $|col(L_G)|$, and $|col(L_G)|\geq 2^{n-1}$, there are at most two states $\{\delta^i_{2^n},\delta^j_{2^n}\}$ such that $L_G\delta^i_{2^n}=\delta^i_{2^n}, L_G\delta^j_{2^n}=\delta^j_{2^n}$, and $i\in\{1,2,...,2^{n-1}\},j\in\{2^{n-1}+1,2^{n-1}+2,...,2^n\}$.
+\end{corollary}
+\begin{proof}
+If for every states $\delta^i_{2^n}\in col(L_G)$ of Galois $NLFSR$ has two predecessors, then there are $\delta^{i_1}_{2^n}$ and $\delta^{i_2}_{2^n}$, such that:
+\begin{equation*}
+L\delta^{i_1}_{2^n}=L\delta^{i_2}_{2^n}=\delta^i_{2^n}.
+\end{equation*}
+then $col_{i_1}(L_G)$ and $col_{i_2}(L_G)$ are equal to $\delta^i_{2^n}$, so $|col(L_G)|\geq 2^{n-1}$.
+\end{proof}
+
+\begin{theorem}\label{ftog}
+Arbitrary Fibonacci $NLFSR$ $FN$ can transform to a $equivalent$ Galois $NLFSR$ $GN$ by using $CM$.
+\end{theorem}
+\begin{proof}
+The proof followed by theorem (\ref{m1}).
+\end{proof}
+
+\begin{theorem}\label{uniform-equivalent}%引用
+A $uniform$ Galois $NLFSR$ can transform to a $equivalent$ Fibonacci $NLFSR$, the nonlinear recurrence describing output sequence of these two $NLFSR$ are same, and there is a bijection $\Phi$ between the initial states of equivalent $NLFSR$.
+\end{theorem}
+
+\begin{theorem}\label{transform-from-G-F}
+ Given a n-bit $uniform$ Galois $NLFSR$ $GN$, $L_G$ is the $state$ $transition$ $matrix$ of $GN$, there is a matrix $L_F\in F_{2^n\times 2^n}$ and a  permutation matrix $M_{\Phi}=[M_{\Phi_1},M_{\Phi_2}]\in \emph{L}_{2^n\times 2^n}$, $col(M_{\Phi_1})\in\{\delta^1_{2^n},\delta^2_{2^n},...,\delta^{2^{n-1}}_{2^n}\}$, $col(M_{\Phi_2})\in\{\delta^{2^{n-1}+1}_{2^n},\delta^{2^{n-1}+2}_{2^n},...,\delta^{2^{n}}_{2^n}\})$ such that
+\begin{equation}
+L_G=M^{-1}_{\Phi}L_FM_{\Phi}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+From the theorem (\ref{uniform-equivalent}), the uniform Galois $NLFSR$ can be equivalent to a Fibonacci $NLFSR$, and there is a bijection $\Phi$ between the states of the two $NLFSR$, so for arbitrary state $\delta^i_{2^n}$ of $GN$, satisfying
+\begin{equation}
+M_{\Phi}L_G\delta^i_{2^n}=L_FM_{\Phi}\delta^i_{2^n}.
+\end{equation}
+where $M_{\Phi}$ is the structure matrix of bijection $\Phi$, and $M_{\Phi}$ is a permutation matrix which is result of bijection's property.
+On the contrary, if $M_{\Phi}L_G\delta^i_{2^n}\neq L_FM_{\Phi}\delta^i_{2^n}$,
+\end{proof}
+In this brief, an algorithm provided to transform a $uniform$ Galois to a $equivalent$ Fibonacci $NLFSR$.\\
+First, there are two array $G[2^n]$, $F[2^n]$ to storage the structure matrix of Galois $NLFSR$ and Fibonacci $NLFSR$ respectively. \\
+Suppose the the structure matrix of Galois $NLFSR$ is $L_G=\delta_{2^n}\left[
+                                                             \begin{array}{cccc}
+                                                               p_1& p_2 & ... & p_{2^n} \\
+                                                             \end{array}
+                                                           \right]
+$, array $G=\left[
+                                                             \begin{array}{cccc}
+                                                               p_1& p_2 & ... & p_{2^n} \\
+                                                             \end{array}
+                                                           \right]$.\\
+For every state $\delta^i_{2^n}$ as the initial state, it has a output sequence $L_i$, in this algorithm, the first 3 bits of $L_i$ only needed, written as $(y_1,y_2,y_3)\sim\delta^{j_i}_{2^n}$. We provide a algorithm to calculate the transform function $\Phi$.
+\begin{algorithm}\label{algorithm1}
+\caption{Calculation of matrix $L_F$.}
+\begin{algorithmic}[1]
+\FOR { $i=1$ to $2^n$}
+\STATE $\Phi(i)=j_i$
+\STATE $col_i(M_{\Phi})=\delta^{j_i}_{2^n}$
+\ENDFOR
+\STATE $M^{-1}_{\Phi}=M^{T}_{\Phi}$
+\STATE $L_F=M_{\Phi}L_G M^{-1}_{\Phi}$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{remark}
+The algorithm [1] obtain the structure matrix of $\Phi$ $M_{\Phi}$, and the $M_{\Phi}$ satisfy the condition in theorem (\ref{transform-from-G-F}).
+\end{remark}
+The transform from a Fibonacci $NLFSR$ $FN$ to a equivalent Galois $NLFSR$ $GN$ can be achieved the inverse process of algorithm [1]. But the process is easier than the transform from a Galois $NLFSR$ to a equivalent Fibonacci $NLFSR$, one only needs construct a bijection $\Psi$ from Galois $NLFSR$ to Fibonacci $NLFSR$, and the structure matrix of $\Psi$ $M_{\Psi}$ satisfying the condition in theorem (\ref{transform-from-G-F}), .
+\begin{algorithm}\label{algorithm2}
+\caption{Calculation of matrix $L_F$.}
+\begin{algorithmic}[2]
+\STATE $\Omega_1=\{1,2,...,2^{n-1}\}$,$\Omega_2=\{2^{n-1}+1,2^{n-1}+2,...,2^{n}\}$
+\FOR { $i=1$ to $2^{n-1}$}
+\STATE $\Phi(i)=j_i\in\Omega_1$
+\STATE $\Omega_1=\Omega_1-j_i$
+\STATE $col_i(M_{\Phi})=\delta^{j_i}_{2^n}$
+\ENDFOR
+\FOR { $i=2^{n-1}$ to $2^{n}$}
+\STATE $\Phi(i)=j_i\in\Omega_2$
+\STATE $\Omega_2=\Omega_2-j_i$
+\STATE $col_i(M_{\Phi})=\delta^{j_i}_{2^n}$
+\ENDFOR
+\STATE $M^{-1}_{\Phi}=M^{T}_{\Phi}$
+\STATE $L_G=M_{\Phi}L_F M^{-1}_{\Phi}$
+\end{algorithmic}
+\end{algorithm}
+\section{EXAMPLE}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{CONCLUSION}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ieeetr}
+\bibliography{E:/My_paper/reference}
+
+\end{document}

@@ -1,0 +1,1131 @@
+%\documentclass[12pt]{article}
+%\documentclass[onecolumn,12pt]{IEEEtran} %!PN
+%\documentclass[onecolumn]{autart}
+\documentclass[twocolumn]{autart}
+\usepackage{amsfonts,amssymb}
+\usepackage{amsmath, natbib}
+\topmargin=.75em
+%\documentclass[twocolumn,journal]{IEEEtran}
+%\documentclass[12pt,draft]{IEEEtran} %!PN
+%\setcounter{page}{1} % The number of 1st page is 1
+\usepackage{flafter}
+\usepackage{fleqn}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{psfrag}
+\usepackage{graphicx,subfigure}
+\usepackage{hyperref}%\href{url}{text}
+\usepackage{url}
+\usepackage{pstricks,fancybox}%color added
+%\usepackage[a4paper,left=2.1cm,right=2.1cm,top=2.2cm,bottom=2.2cm]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{Assumption}
+\newtheorem{hypothesis}{Hypothesis}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{notation}{Notation}
+
+\def\proof{\par{ \textbf{Proof}}. \ignorespaces}
+
+\def\endproof{\vbox{\hrule height0.6pt\hbox{%
+   \vrule height1.3ex width0.6pt\hskip0.8ex
+   \vrule width0.6pt}\hrule height0.6pt
+  }}
+
+%\def\proof{\noindent\hspace{2em}{\itshape Proof: }}
+%\def\endproof{\hspace*{\blacksquare}~\QED\par\endtrivlist\unskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\def\proj{\mbox{proj}}
+%\def\fa{\ \mbox{for all}\ }  % Use \fa in place of \forall
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\textheight 9.4in \textwidth 6.0in \tolerance=10000
+%\parskip=1pt
+%\baselineskip 5true mm \overfullrule=0pt \topmargin -0.6in
+%\renewcommand\refname{References}
+%\oddsidemargin 0truecm \evensidemargin 0in \makeatletter
+\makeatother
+
+\begin{document}
+
+\begin{frontmatter}
+\title{A Unified Synchronization Criterion for Impulsive Dynamical Networks
+\thanksref{footnoteinfo}}
+
+\thanks[footnoteinfo]{This work was jointly supported by CityU 101109
+(9041432), the National Natural Science Foundation of China under
+Grant 60874088, the Specialized Research Fund for the Doctoral
+Program of Higher Education under Grant 20070286003, and the Natural
+Science Foundation of Jiangsu Province of China under Grant
+BK2009271.}
+
+
+\author[1,2]{Jianquan Lu}\ead{jqluma@gmail.com;jqluma@seu.edu.cn},
+\author[2]{Daniel W.C. Ho}\ead{madaniel@cityu.edu.hk},
+\author[1]{Jinde Cao}\ead{jdcao@seu.edu.cn}
+
+\address[1]{Department of  Mathematics,
+Southeast University, Nanjing 210096, China}
+\address[2]{Department of Mathematics, City University of
+ Hong Kong, Hong Kong, China}
+
+\begin{keyword}Impulsive dynamical networks, Unified synchronization
+criterion, Average impulsive interval, Synchronizing impulses,
+Desynchronizing impulses.\end{keyword}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+In this paper, Galois nonlinear feedback shift register (NLFSR) and Fibonacci NLFSR are regarded as two Boolean networks (BNs), and semi-tensor product (STP) of matrices is used to convert these two nonlinear feedback shift registers (NLFSRs) into two equivalent algebraic equations. Based on STP, a novel way is proposed to investigate the transformation between the Galois NLFSR and Fibonacci NLFSR. Firstly, we redefine the uniform NLFSR, and the properties of uniform NLFSR have been investigated. Secondly, two bijections between initial states of Galois NLFSR and Fibonacci NLFSR are obtained. Thirdly, two algorithms are provided to achieve the transformation between the Galois NLFSR and Fibonacci NLFSR. Compared with some existing methods, the method provided in this paper is easier to realize, and we extend the range of Galois NLFSR which can be transformed to a Fibonacci NLFSR. At last, two examples illustrate the results obtained in this paper.
+\end{abstract}
+\end{frontmatter}
+
+
+\section{Introduction}
+The information security is important for our society. The information encryption is essential. Pseudo-random sequences as signal form with good correlation properties have been widely used in many applications, such as secure communication, delay measurement and noise and spread spectrum communication generator. The linear feedback shift register (LFSR) is one of the most popular configurations for generating pseudo-random sequences \cite{goresky2012algebraic}\cite{golomb1982shift}\cite{goresky2006pseudonoise}, where its current state is decided by a linear function of its previous states. In \cite{Li2014The}, the author investigated the some properties about LFSR. The advantages of LFSR are fast, easy and simple to implement in hardware and software, and they can generate random sequences with same statistical distribution of 0's and 1's \cite{golomb1982shift}. Nevertheless, they are not safe in stream cipher. Inspecting $2n$ consecutive bits of it's output sequence can deduce the structure of a $n$-bit LFSR \cite{massey1969shift}.
+
+
+To solve this problem, nonlinear feedback shift register (NLFSR) was proposed in \cite{golomb1982shift}, where its feedback functions are nonlinear Boolean functions. Due to the complicate structures of NLFSR, the output sequences of NLFSR are very difficult to deduce with cryptanalytic method, such as correlation attacks \cite{meier1989fast}. Many different designed methods of NLFSR-based stream ciphers have been proposed in \cite{hell2007grain}\cite{gammel2006nlfsr}\cite{chen2004dragon}\cite{gammel2007achterbahn}.\par
+
+
+
+There exist two types of nonlinear feedback shift registers (NLFSRs): Galois NLFSR and Fibonacci NLFSR. The Galois NLFSR is shown in Fig. \ref{uniform}, which consists of a number of binary storage elements from left to right as $n-1,n-2,...,1,0$, and each bit is updated by its own feedback function which relates to every bit. The value of the $0$-th bit is the output of Galois NLFSR. There is a special kind of Galois NLFSR which has been proposed in \cite{Dubrova2010Finding}, named uniform Galois NLFSR as shown in Fig. {\ref{g}}. The $i$-th feedback function of uniform Galois NLFSR only relates to the $i$-th bit and the right bits of $i$-th bit. While for the Fibonacci NLFSR, as show in Fig. \ref{f}, only the $(n-1)$-th bit is updated by the feedback function. At each time, the value of the $i$-th bit is moved to the $(i-1)$-th bit in Fibonacci NLFSR. These two types of NLFSRs have their own disadvantages. The depth of the circuits implementing the Fibonacci NLFSR is larger than the depth of the circuits implementing the Galois NLFSR \cite{Dubrova2009A}. But for uniform Galois NLFSR, the period of the output sequence may not equal to the length of the longest cyclic sequence of its consecutive states. In \cite{zhiqiang2013transformation}, Lin $et$ $al.$ proved that the uniform Galois NLFSR can be transformed to an equivalent Fibonacci NLFSR. In \cite{Dubrova2009A}, a method of the transformation from Fibonacci NLFSR to Galois NLFSR was provided. In \cite{Dubrova2010Finding}, Dubrova provided a method to find the matching initial states between Fibonacci NLFSR and its equivalent Galois NLFSR. For an arbitrary initial state of a NLFSR $A$, there is an initial state in equivalent NLFSR $B$ which can deduce same output sequence, and the initial states of NLFSR $A$ and NLFSR $B$ are one-to-one mapping. Unfortunately the methods in \cite{Dubrova2010Finding}\cite{Dubrova2009A}\cite{zhiqiang2013transformation} all need algebraic calculation, and the methods in \cite{Dubrova2010Finding}\cite{Dubrova2009A}\cite{zhiqiang2013transformation} can not be realized through programming. For a given $n$-bit NLFSR with a big $n$, the methods in \cite{Dubrova2010Finding}\cite{Dubrova2009A}\cite{zhiqiang2013transformation} are not applicable. \par
+
+
+Lately, a new mathematical tool of matrix calculation named the semi-tensor product (STP) of matrices was proposed in \cite{Cheng2011Analysis}. This STP method has been used to study Boolean networks (BNs). In \cite{lu2016controllability}, Lu $et$ $al.$ studied the controllability of delayed Boolean control networks (BCNs) based on the method of STP. By using STP, the pinning controllability problem, synchronization problem, stabilization problem, observability problem and output tracking control problem of BCNs have been investigated in \cite{lu2016pinning}\cite{zhong2014synchronization}\cite{Liu2016Sampled}\cite{li2011controllability}\cite{cheng2009controllability}\cite{laschov2012controllability}\cite{li2015output}. Based on the method of STP, the stability of BNs has been studied in \cite{cheng2011stability}. The controllability problem of BNs was investigated in \cite{Li2015Controllability}\cite{liu2014controllability} by using the method of STP. In \cite{guo2013semi}, the method of STP was used to study the problems of game theory. The tool of STP has also been successfully applied to the Fibonacci NLFSR \cite{Zhong2014A}\cite{Zhong2014Stability}\cite{Zhong2016Driven}. Up to now some interesting results about Fibonacci NLFSR have been obtained by using STP. In this paper, motivated by above discussions , the method of STP is used to study the transformation between Galois NLFSR and Fibonacci NLFSR.
+
+
+In this paper, we investigate the transformation between Fibonacci NLFSR and Galois NLFSR by using STP. Firstly, the Fibonacci NLFSR and the Galois NLFSR are regarded as BNs. Then, we redefine the uniform NLFSR, and the properties of uniform NLFSR will be investigated. Secondly, two bijections $\Phi$, $\Psi$ between initial states of Galois NLFSR and Fibonacci NLFSRs are obtained. Thirdly, two algorithms are provided to achieve the transformation between the Galois NLFSR and Fibonacci NLFSR. At last, two examples are presented to illustrate the results obtained in this paper. The contribution of this paper:
+\begin{itemize}
+ \item Compared with the results in \cite{Dubrova2009A}\cite{zhiqiang2013transformation}, the transformation between these two types of NLFSRs can be achieved by programming, and hence the methods provided in this paper is more convenient to realize and implement.
+ \item The initial states matching between two types of NLFSRs can be easily obtained by computations.
+ \item We expand the range of Galois NLFSR that can be transformed to Fibonacci NLFSR.
+ \end{itemize} %前面可以加点关于别的转化方法的介绍
+
+
+
+ The remainder of this paper is organized as follows. Section 2 gives some preliminaries on STP, Galois NLFSR, Fibonacci NLFSR and the definition of isomorphic graph. In Section 3, we study the properties of uniform NLFSR, and present two algorithms to achieve the transformation between these two types of NLFSRs. In Section 4, two example are given to illustrate our theoretical results. At last, a conclusion is given.
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{uniform.eps}
+\caption{The uniform Galois NLFSR}
+\label{uniform}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{Galois.eps}
+\caption{The Galois NLFSR}
+\label{g}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=3in]{fsr.eps}
+\caption{The Fibonacci NLFSR}
+\label{f}
+\end{figure}
+
+\section{Model description and some preliminaries}\label{preliminaries}
+We consider a complex dynamical network consisting of $N$ linearly
+coupled identical nodes. Each node is an $n$-dimensional system
+composed of linear term and nonlinear term. The $i$-th node can be
+described by following differential equation:
+\begin{eqnarray}\label{model-0}
+\dot{x}_{i}(t)=Cx_{i}(t)+Bf(x_{i}(t)),
+\end{eqnarray}
+where $x_{i}(t)=[x_{i1}(t),x_{i2}(t),...,x_{in}(t)]^T$ is the state
+vector of the $i$-th node at time $t$; $C\in \mathbb{R}^{n\times
+n}$, $B\in \mathbb{R}^{n\times n}$; and
+$f(x_{i}(t))=[f_{1}(x_{i1}(t)),f_{2}(x_{i2}(t)),...,
+f_{n}(x_{in}(t))]^T$.
+
+The dynamical behavior of the complex dynamical network can be
+described by the following linearly coupled differential equations
+(\cite{wangxf2002ieeetcas54,wucw2007book})
+\begin{eqnarray}\label{model-1}
+\hspace{-1cm}\dot{x}_{i}(t)=Cx_{i}(t)+Bf(x_{i}(t))+c\sum\limits_{j=1,j\neq
+i}^N a_{ij}\Gamma (x_{j}(t)-x_i(t)),\nonumber\\i=1,...,N,~
+\end{eqnarray}
+where $\Gamma$ is the inner coupling positive definite matrix
+between two connected nodes $i$ and $j$; $c$ is the coupling
+strength; and $a_{ij}$ is defined as follows: if there is a
+connection from node $j$ to node $i$ ($j\neq i$), then $a_{ij}> 0$;
+otherwise, $a_{ij}=0$.
+
+In the process of signal transmission, the coupled states
+$x_{j}(t)-x_i(t)$ between connected nodes $j$ and $i$ are suddenly
+changed in the form of impulses at discrete times $t_k$. That is,
+$x_i(t_k^+)-x_j(t_k^+)=S_k \cdot (x_i(t_k^-)-x_j(t_k^-))$. For the
+sake of analytical simplification, we shall choose constant impulse
+gain in the form of $S_k=\mu I$, which does not cause any loss of
+generality in the sense of synchronization analysis. Let
+$a_{ii}=-\sum_{j=1,j\neq i}^N a_{ij}$. Thus, the impulsive dynamical
+network can be obtained in the following form:
+\begin{eqnarray}\label{model-2}
+\left\{\begin{array}{rcl} \dot{x}_{i}(t)=Cx_{i}(t)+Bf(x_{i}(t))
++c\sum\limits_{j=1}^N a_{ij}\Gamma x_{j}(t),\\
+t\geq 0,~t\neq t_k,~k\in \mathbb{N},\\
+x_j(t_k^+)-x_i(t_k^+)=\mu \cdot
+(x_j(t_k^-)-x_i(t_k^-)),\hspace{0.6cm}\\~\mbox{for}~
+(i,j)~\mbox{satisfying}~a_{ij}>0, \mu \neq 0,
+\end{array}\right.
+\end{eqnarray}
+where $\zeta=\{t_1,t_2,t_3,...\}$ is an impulsive sequence
+satisfying $t_{k-1}<t_k$ and $\lim t_k\rightarrow +\infty$ as
+$k\rightarrow +\infty$, and $\mu$ represents the strength of
+impulsive signal. Here, $A=(a_{ij})_{N\times N}$ is the Laplacian
+matrix of the corresponding network (\cite{chung1997book}). We
+always assume that $x_i(t)$ is left-hand continuous at $t=t_k$,
+i.e., $x(t_k)=x(t_k^-)$. Hence, the solutions of (\ref{model-2}) are
+piecewise left-hand continuous functions with discontinuities at
+$t=t_k$ for $k\in \mathbb{N}$.
+
+\begin{remark}
+If $u=0$, then the dynamical network \eqref{model-2} would be
+synchronized after one impulse. Hence, this trivial case will not be
+discussed in the rest of this paper.
+\end{remark}
+
+\begin{remark}
+From the second equation of \eqref{model-2}, we can derive that
+$x_i(t_k^+)=\mu \cdot
+x_i(t_k^-)+\tilde{c}_k(\forall~\tilde{c}_k\in\mathbb{R}^n)$, which
+further implies that $x_i(t_k^+)-c_k=\mu \cdot(
+x_i(t_k^-)-c_k)(\forall~c_k\in\mathbb{R}^n)$. Then, the impulses
+occurred in the process of coupling can be essentially regarded that
+same impulsive controllers are operated on the nodes of the network.
+Hence, corresponding impulsive control strategy can be developed to
+decide the value of $x_i(t_k^+)$.
+\end{remark}
+
+\subsection{Discussions about impulsive sequences}
+Here we give some mathematical definitions for three kinds of
+impulses, which are respectively desynchronizing impulses, inactive
+impulses and synchronizing impulses, in terms of impulsive strength
+$\mu$.
+
+\begin{itemize}
+\item When $|\mu|>1$, the impulses can potentially destroy the
+synchronization since the differences between the nodes' states are
+enlarged. Thus we say that the impulses are \textit{desynchronizing}
+if $|\mu|>1$. Desynchronizing impulses can be regarded as
+perturbations, which can suppress the synchronization of CDNs.
+
+\item When $|\mu|=1$, the impulses are neither harmful nor beneficial for the
+synchronization of impulsive dynamical networks since the absolute
+value of the differences between the nodes' states remains
+unchanged. Hence, the impulses with $|\mu|=1$ are named as
+\textit{inactive impulses}.
+
+\item When $|\mu|<1$, the impulses are beneficial for the
+synchronization of impulsive dynamical networks since the
+differences between the nodes' states are reduced. Thus we say that
+the impulses are \textit{synchronizing} if $|\mu|<1$. Synchronizing
+impulses can be considered as impulsive controllers, which can
+enhance the synchronization of CDNs.
+\end{itemize}
+
+When the network dynamics are synchronizing but the impulsive
+effects are desynchronizing, the impulses should not occur too
+frequently in order to guarantee synchronization. To ensure that the
+impulses do not occur too frequently, there always exist a
+requirement that $t_{k}-t_{k-1}\geq\varepsilon_1$ for certain
+positive number $\varepsilon_1$ in most of the previous results
+(\cite{yangz2005ieeetcasii517,zhouj2007phya684}). It means that the
+quantity $\varepsilon_1$ is taken as a measure to ensure that the
+desynchronizing impulses do not occur too frequently.
+
+Conversely, when the network dynamic are desynchronizing and the
+impulsive effects are synchronizing, in order to ensure
+synchronization, it should be naturally assumed that the frequency
+of impulses should not be too low. To satisfy such assumption, in
+most of the previous papers
+(\cite{zhangqj2009cma1073,zhangh2006cdc2765,liub2008na1169,liub2005ieeetcasi1431,zhangg2007chaos043126,caism2008pla4990}),
+there always exist a requirement that
+$t_{k}-t_{k-1}\leq\varepsilon_2$ for certain positive number
+$\varepsilon_2$. This means that the quantity $\varepsilon_2$ is
+selected as a measure to guarantee that there is no overly long
+impulsive intervals.
+
+\subsection{Some preliminaries}
+\begin{definition}\label{definition-average-impulsive-interval}
+\textit{(average impulsive interval)} The \textit{average impulsive
+interval} of the impulsive sequence $\zeta=\{t_1,t_2,\cdots\}$ is
+equal to $T_a$ if there exist positive integer $N_0$ and positive
+number $T_a$, such that
+\begin{eqnarray}\label{model-3}
+\hspace{-0.3cm}\frac{T-t}{T_a}-N_0\leq N_{\zeta}(T,t)\leq
+\frac{T-t}{T_a}+N_0,~\forall T\geq t\geq 0,~
+\end{eqnarray}
+where $N_{\zeta}(T,t)$ denotes the number of impulsive times of the
+impulsive sequence $\zeta$ on the interval ($t,T$).
+\end{definition}
+
+\begin{remark}
+\textbf{The motivation for the introduction of this concept:} For
+most of the real-world impulsive signals, the occurrence of impulses
+is not uniformly distributed. Figure \ref{fig:0} presents a specific
+example of non-uniformly distributed impulsive sequence. We can
+observe from Figure \ref{fig:0} that the impulses seldom occur in
+the time intervals $(t^1,t^2)$, whereas they frequently occur in the
+interval $(t^2,t^3)$. For such impulsive signals, the lower bound of
+the impulsive intervals is small, meanwhile the upper bound of the
+impulsive intervals is quite large. Hence, for non-uniformly
+distributed impulsive signals, taking $\inf_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$ (lower bound) or $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$ (upper bound) to characterize the
+frequency of impulses' occurrence would make the obtained results
+very conservative. Some previous results in the literature can not
+be effectively applied to dynamical systems with the impulsive
+signal shown in Figure \ref{fig:0}. For more detailed discussions
+about this kind of impulsive signal, please refer to Example
+\ref{example:0} in Appendix.
+\end{remark}
+
+\begin{remark}
+It follows from Definition
+\ref{definition-average-impulsive-interval} that the average
+impulsive interval of impulsive signal $\bar{\zeta}$ in
+\eqref{equation-00} is equal to $T_a$. Suppose that $\zeta$ is an
+impulsive signal with average impulsive interval $T_a$. It can be
+concluded that, for such $\zeta$, the lower bound of the impulsive
+intervals can be arbitrarily small; and meanwhile the upper bound of
+the impulsive intervals can be very large. Hence, this concept of
+\textit{average impulsive interval} is suitable for a wider range of
+impulsive signals.
+\end{remark}
+
+\begin{remark}
+The concept of ``\textit{average impulsive interval}" is introduced
+by referring to the concept of average dwell time
+(\cite{hespanha1999cdc2655,liberzon2003book,hespanha2005cdc3992}) to
+characterize how often or how seldom impulses occur. This new
+concept will be utilized to derive a \textit{unified} criterion for
+the synchronization analysis of impulsive dynamical networks, which
+is simultaneously applicable for CDNs with desynchronizing impulses
+or synchronizing impulses. The derived criterion is valid for the
+impulsive signal in Figure \ref{fig:0}, and further it is applicable
+to impulsive signals with a wider range of impulsive interval.
+%According to theoretical analysis and numerical examples, the
+%obtained criterion is less conservative than previous results.
+\end{remark}
+
+%\begin{remark}
+%The idea behind this concept is as follows: High-density impulses
+%(such as $``t_0+2T_a,t_0+2T_a+\epsilon"$) are allowed to occur in
+%certain interval, and low-density impulses (such as
+%$``t_0+2T_a+\epsilon,t_0+4T_a"$) will follow for compensation.
+%\end{remark}
+
+\begin{definition}\label{definition-exp-syn}
+\rm The impulsive dynamical network (\ref{model-2}) are said to be
+globally exponentially synchronized if there exist $\eta
+>0$, $T>0$ and $M_0>0$, such that for any initial values
+$x_i(0)$ $(i=1,2,...,N)$,
+$$\|x_i(t)-x_j(t)\|\leq M_0e^{-\eta t}$$
+hold for all $t>T$, and for any $i,j=1,2,...,N$.
+\end{definition}
+
+\begin{assumption}\label{sec1.4-assumption-lipschitz}\rm
+For nonlinear function $f(x(t))=[f_{1}(x_{1}(t)),...,
+f_{n}(x_{n}(t))]^T$, we assume that there exist constants
+$l_{k}>0~(k=1,2,\ldots,n)$ such that $ |f_{k}(x_1)-f_{k}(x_2)|\leq
+l_{k}|x_1-x_2|$ $(k=1,2,\ldots,n)$ holds for any $x_{1}, x_{2}\in
+\mathbb{R}$. Denote $L=\mbox{diag}\{l_1,l_2,...,l_n\}$.
+\end{assumption}
+
+\begin{lemma}\label{sec1.4-lemma-inequality}
+For any vectors $x,y\in \mathbb{R}^{n}$, scalar $\epsilon>0$, and
+positive definite matrix $Q\in \mathbb{R}^{n\times n}$, the
+following inequality holds: $2x^{T}y\leq \epsilon
+x^{T}Qx+\epsilon^{-1}y^{T}Q^{-1}y$.
+%For any vectors $x,y\in R^{n}$, we have $2x^{T}y\leq x^{T}x+y^{T}y$.
+\end{lemma}
+
+%\begin{lemma}\cite{luwl2006phyd214,horn1990cambridgebook}
+%\label{sec1.4-lemma-irreducible-left-eigenvector}\rm For an
+%irreducible matrix $A$ with non-negative off-diagonal elements,
+%which satisfies the diffusive coupling condition
+%$a_{ii}=-\sum_{j=1,j\neq i}^N a_{ij}$, we have the following
+%propositions:
+%\begin{enumerate}
+%\item[\rm{i.}] If $\lambda$ is an eigenvalue of $A$ and
+%$\lambda\neq0$, then $\rm{Re}(\lambda)<0$;
+%\item[\rm{ii.}] $A$ has an eigenvalue $0$ with multiplicity 1 and
+%the right eigenvector $[1,1,...,1]^{T}$;
+%\item[\rm{iii.}] Suppose that
+%$\xi=[\xi_{1},\xi_{2},...,\xi_{N}]^{T}\in\mathbb{R}^{N}$ satisfying
+%$\sum_{i=1}^{N}\xi_{i}=1$ is the normalized left eigenvector of $A$
+%corresponding to eigenvalue 0. Then, $\xi_{i}>0$ for all
+%$i=1,2,...,N$. Furthermore, if $A$ is symmetric, then we have
+%$\xi_i=\frac{1}{N}$ for $i=1,2,...,N$.
+%\end{enumerate}
+%\end{lemma}
+
+\section{Unified synchronization criterion}\label{sec2.3}
+In this section, we will derive a \textit{unified} globally
+exponential synchronization criterion for impulsive dynamical
+networks with synchronizing impulses or desynchronizing impulses.
+Some detailed discussions will be given to verify that our obtained
+results are less conservative than the results in the literature.
+The network topology is assumed to be strongly connected, which
+means that corresponding Laplacian coupling matrix $A$ is
+irreducible. Let $x(t)=(x_1^T(t),x_2^T(t),...,x_N^T(t))^T$ and
+$F(x(t))=(f^T(x_1(t)),f^T(x_2(t)),...,f^T(x_N(t)))^T$. Thus
+impulsive dynamical network (\ref{model-2}) can be rewritten in the
+following Kronecker-product form:
+\begin{eqnarray}\label{model-4}
+\left\{\begin{array}{ll} \dot{x}(t)=(I_N\otimes C) x(t)+(I_N\otimes
+B)F(x(t))\\\hspace{1.2cm}+c(A\otimes\Gamma) x(t),~t\neq t_k,~k\in \mathbb{N},\\
+x_j(t_k^+)-x_i(t_k^+)=\mu \cdot
+(x_j(t_k^-)-x_i(t_k^-)),\\\hspace{0.3cm}~\mbox{for}~k\in\mathbb{N},
+~ (i,j)~\mbox{satisfying}~a_{ij}>0,~\mu\neq0.
+ \end{array}\right.
+\end{eqnarray}
+Suppose that $\xi=(\xi_{1},\xi_2,...,\xi_N)^T$ is the normalized
+left eigenvector of configuration coupling matrix $A$ with respect
+to eigenvalue 0 satisfying $\sum_{i=1}^N\xi_i=1$. Since the coupling
+configuration matrix $A$ is irreducible, according to
+Perron-Frobenius theorem
+(\cite{horn1990cambridgebook,luwl2006phyd214}), we can conclude that
+$\xi_i>0$ for $i=1,2,...,N$. Let
+$\Xi=\mbox{diag}\{\xi_{1},\xi_2,...,\xi_N\}>0$, and
+$W\stackrel{\bigtriangleup}{=}(w_{ij})_{N\times N}=\Xi-\xi\xi^T$.
+Denote $\tilde{A}=\Xi A+ A^T\Xi$.
+
+\begin{theorem}\label{theorem-1}
+Consider the impulsive dynamical network (\ref{model-4}) with
+asymmetric irreducible coupling matrix $A$. Suppose that function
+$f(\cdot)$ satisfies Assumption \ref{sec1.4-assumption-lipschitz},
+and the average impulsive interval of impulsive sequence
+$\zeta=\{t_1,t_2,...\}$ is equal to $T_a$. Then the impulsive
+dynamical network (\ref{model-4}) is globally exponentially
+synchronized with convergence rate $\eta$ if
+\begin{eqnarray}\label{equation-0}
+\eta\stackrel{\vartriangle}{=}\frac{2ln(|\mu|)}{T_a}+p<0,
+\end{eqnarray}
+where $p=\lambda_{\max}(C^T+C+BB^T+L^TL- c\gamma \Gamma)$ with
+$\gamma=-\lambda_2(\tilde{A})/\lambda_{\max}(W)$, and $\mu\neq0$.
+\end{theorem}
+
+\begin{proof}
+Consider the function $V(t)=x^T(t)(W\otimes I_n)x(t)$. By referring
+to the construction of matrix $W$ and some detailed calculation, we
+can obtain that $V(t)=\sum_{i=1}^N\sum_{j=1,j\neq
+i}^N-\frac{1}{2}w_{ij}(x_i-x_j)^T(x_i-x_j)$. The Dini derivative of
+$V(t)$ along the trajectories of the systems (\ref{model-4}) can be
+obtained as follows:
+\begin{eqnarray}\label{equation-1}
+&&\hspace{-0.2cm}\dot{V}(t)\nonumber\\
+&\hspace{-0.4cm}=&2x^T(t)(W\otimes C) x(t) +2 x^T(t)(W\otimes B)F(x(t))\nonumber\\
+&&\hspace{-0.2cm}+2cx^T(t)(WA\otimes\Gamma) x(t),~t\in(t_{k-1},t_k],
+~k\in\mathbb{N}.
+\end{eqnarray}
+Noting that $WA=(\Xi-\xi\xi^T)A=\Xi A-\xi(\xi^TA)=\Xi A$ and
+$(W\otimes I_n)\textbf{I}(t)=0$, we can obtain that
+\begin{eqnarray}\label{equation-3}
+&&\dot{V}(t)\nonumber\\
+&\leq&-\sum\limits_{i=1}^N\sum\limits_{j=1,j\neq i}^Nw_{ij}\biggl\{
+(x_{i}-x_{j})^{T}(C-\frac{1}{2}c\gamma
+\Gamma)(x_{i}-x_{j})\nonumber\\
+&&+(x_{i}-x_{j})^{T}B(f(x_{i})-f(x_{j}))
+\nonumber\\
+&&+cx^T(t)\big[(\Xi A+ A^T\Xi)\otimes \Gamma +W\otimes \gamma \Gamma
+\big]x(t),\nonumber\\
+&&~\mbox{for}~ t\in(t_{k-1},t_k], ~k\in\mathbb{N}.
+\end{eqnarray}
+By referring to the construction of matrix $\tilde{A}=\Xi A+
+A^T\Xi$, it follows from Perron-Frobenius theorem
+(\cite{horn1990cambridgebook}) that, the eigenvalues of matrix
+$\tilde{A}$ can be arranged as follows:
+$0=\lambda_{1}(\tilde{A})>\lambda_{2}(\tilde{A})\geq
+\lambda_{3}(\tilde{A})\geq \cdots \geq \lambda_{N}(\tilde{A})$.
+
+By matrix decomposition theory (\cite{horn1990cambridgebook}), there
+exists unitary matrix $U$, such that $\tilde{A}=U\Lambda U^T$, where
+$\Lambda=\mbox{diag}\{0,\lambda_{2}(\tilde{A}),...,
+\lambda_{N}(\tilde{A})\}$ and $U=[u_1,u_2,...,u_N]$ with
+$u_1=(\frac{1}{\sqrt{N}},\frac{1}{\sqrt{N}},...,\frac{1}{\sqrt{N}})^T$.
+
+Let $y(t)=(U^T\otimes I_n)x(t)$. Then one has $x(t)=(U\otimes
+I_n)y(t)$. Let $y_i(t)\in\mathbb{R}^n$ ($i=1,2,...,N$) be such that
+$y(t)=[y_1^T(t),y_2^T(t),...,y_N^T(t)]^T$, it follows that
+\begin{eqnarray} \label{equation-5} &&x^T(t)\big[(\Xi A+
+A^T\Xi)\otimes \Gamma\big]x(t)\nonumber\\
+&=&y^T(t)(U^T\otimes I_n)(\tilde{A}\otimes
+\Gamma)(U\otimes I_n)y(t)\nonumber\\
+&=&\sum_{i=2}^N \lambda_i(\tilde{A})y_i^T(t)\Gamma y_i(t)\nonumber\\
+&\leq&\lambda_2(\tilde{A})\sum_{i=2}^N y_i^T(t)\Gamma y_i(t).
+\end{eqnarray}
+From the construction of matrix $W$, it can be observed that $W$ is
+a zero row sum irreducible symmetric matrix with negative
+off-diagonal elements. Hence, one can conclude that
+$\lambda_{\max}(W)>0$. Moreover $W\cdot
+u_1=(0,0,...,0)^T:=O_n\in\mathbb{R}^N$. Thus we can obtain that
+$U^TWU=\left[\begin{array}{cc}
+0 &  O_n^T\\
+O_n & \tilde{U}^TW\tilde{U}
+\end{array}\right]$, where $\tilde{U}=[u_2,u_3,...,u_N]$ satisfying
+$\tilde{U}^T\tilde{U}=I_{N-1}$. Hence, we obtain that
+\begin{eqnarray}\label{equation-6}
+&&x^T(t)(W\otimes \gamma \Gamma )x(t)\nonumber\\
+&=&
+\gamma y^T(t)(U^TWU\otimes \Gamma)y(t)\nonumber\\
+&=&\gamma \tilde{y}^T(t)(\tilde{U}^TW\tilde{U}\otimes \Gamma)\tilde{y}(t)\nonumber\\
+&\leq&\gamma\lambda_{\max}(W)
+\tilde{y}^T(t)(\tilde{U}^T\tilde{U}\otimes \Gamma)\tilde{y}(t)\nonumber\\
+&=&\gamma\lambda_{\max}(W)\sum_{i=2}^N y_i^T(t) \Gamma y_i(t),
+\end{eqnarray} where $\tilde{y}(t)=[y_2^T(t),...,y_N^T(t)]^T$.
+
+It follows from \eqref{equation-5}, \eqref{equation-6} and equality
+$\gamma=-\lambda_2(\tilde{A})/\lambda_{\max}(W)$ that
+\begin{eqnarray}\label{lya-deriv-5-th1}
+&&cx^T(t)\big[(\Xi A+ A^T\Xi)\otimes \Gamma +W\otimes \gamma \Gamma
+\big]\nonumber\\
+&\leq&c(\lambda_2(\tilde{A})+\gamma\lambda_{\max}(W))\sum_{i=2}^N
+y_i^T(t)\Gamma
+y_i(t)\nonumber\\
+&=&0.
+\end{eqnarray}
+
+By Assumption \ref{sec1.4-assumption-lipschitz} and Lemma
+\ref{sec1.4-lemma-inequality}, we can obtain that
+\begin{eqnarray}\label{equation-2}
+&&2(x_{i}-x_{j})^{T}B(f(x_{i})-f(x_{j}))\nonumber\\&\leq&
+(x_{i}-x_{j})^{T}BB^T(x_{i}-x_{j})\nonumber\\
+&&+ (f(x_{i})-f(x_{j}))^T(f(x_{i})-f(x_{j}))\nonumber\\&\leq&
+(x_{i}-x_{j})^{T}(BB^T+L^TL)(x_{i}-x_{j}).
+\end{eqnarray}
+
+Recalling \eqref{equation-3}, it follows from
+\eqref{lya-deriv-5-th1} and \eqref{equation-2} that
+\begin{eqnarray}\label{equation-7}
+&&\dot{V}(t)\nonumber\\&\leq&-\sum\limits_{i=1}^N\sum\limits_{j=1,j\neq
+i}^N\frac{1}{2}w_{ij}\biggl\{ (x_{i}-x_{j})^{T}(2C+BB^T\nonumber\\
+&&+L^TL-c\gamma \Gamma)(x_{i}-x_{j})\biggl\}
+\nonumber\\
+&\leq&\lambda_{\max}(C^T+C+BB^T +L^TL-
+c\gamma \Gamma)\cdot\nonumber\\
+&&\sum\limits_{i=1}^N\sum\limits_{j=1,j\neq i}^N[-\frac{1}{2}w_{ij}
+(x_{i}-x_{j})^{T}(x_{i}-x_{j})]\nonumber\\
+&=&pV(t),~~~~~\mbox{for}~~t\in(t_{k-1},t_k], ~k\in\mathbb{N},
+\end{eqnarray}
+where $p=\lambda_{\max}(C^T+C+BB^T+L^TL -c\gamma \Gamma)$ and
+$V(t)=\sum_{i=1}^N\sum_{j=1,j\neq
+i}^N-\frac{1}{2}w_{ij}(x_i-x_j)^T(x_i-x_j)$ are utilized.
+
+Hence, we can obtain
+\begin{eqnarray}\label{equation-7-1}
+V(t)\leq e^{p(t-t_{k-1})},~~\mbox{for}~t\in(t_{k-1},t_k],
+~k\in\mathbb{N}.
+\end{eqnarray}
+From \eqref{model-4}, we have $x_j(t_k^+)-x_i(t_k^+)=\mu \cdot
+(x_j(t_k^-)-x_i(t_k^-))$, for each pair of $(i,j)$ satisfying
+$a_{ij}>0$. Since $A$ is irreducible, for any pair of suffixes $i$
+and $j$ ($i\neq j$), there exist suffixes $s_1,s_2,...,s_m$, such
+that $a_{is_m}>0$, $a_{s_{m}s_{m-1}}>0, \cdots$, and $a_{s_1j}>0$.
+Thus, for any pair of suffixes $i$ and $j$, we have
+\begin{eqnarray}\label{equation-8}
+&&x_j(t_k^+)-x_i(t_k^+)\nonumber\\&=&
+(x_j(t_k^+)-x_{s_1}(t_k^+))+(x_{s_1}(t_k^+)-x_{s_2}(t_k^+))\nonumber\\
+&&+\cdots+(x_{s_m}(t_k^+)-x_i(t_k^+))\nonumber\\&=&
+\mu\cdot(x_j(t_k^-)-x_{s_1}(t_k^-))+\mu\cdot(x_{s_1}(t_k^-)-x_{s_2}(t_k^-))
+\nonumber\\
+&&+\cdots+\mu\cdot(x_{s_m}(t_k^-)-x_i(t_k^-))\nonumber\\
+&=&\mu\cdot(x_j(t_k^-)-x_i(t_k^-)).
+\end{eqnarray}
+Hence, for $t=t_k, k\in \mathbb{N}$, we obtain
+\begin{eqnarray}\label{equation-9}
+&&V(t_k^+)\nonumber\\
+&=&\frac{1}{2}\sum\limits_{i=1}^N\sum\limits_{\stackrel{j=1}{j\neq
+i}}^N-w_{ij}(x_i(t_k^+)-x_j(t_k^+))^T(x_i(t_k^+)-x_j(t_k^+))\nonumber\\
+&=&\frac{\mu^2}{2}\sum\limits_{i=1}^N\sum\limits_{\stackrel{j=1}{j\neq
+i}}^N-w_{ij}(x_i(t_k^-)-x_j(t_k^-))^T(x_i(t_k^-)-x_j(t_k^-))\nonumber\\
+&=&\mu^2V(t_k^-).
+\end{eqnarray}
+
+The following results come from \eqref{equation-7-1} and
+\eqref{equation-9}.
+
+For $t\in(t_0,t_1]$, $V(t)\leq e^{p(t-t_0)}V(t_0^+)$, which leads to
+$V(t_1)\leq e^{p(t_1-t_0)}V(t_0^+)$ and $V(t_1^+)\leq \mu^2
+e^{p(t_1-t_0)}V(t_0^+)$.
+
+Similarly, for $t\in(t_1,t_2]$, $V(t)\leq e^{p(t-t_1)}V(t_1^+)\leq
+\mu^2 e^{p(t_1-t_0)}V(t_0^+)$.
+
+In general, for $t\in(t_k,t_{k+1}]$, $V(t)\leq \mu^{2k}
+e^{p(t-t_0)}V(t_0^+)$.
+
+Let $N_\zeta(t,t_0)$ be the number of impulsive times of the
+impulsive sequence $\zeta$ on the interval $(t_0,t)$. Hence, for any
+$t\in\mathbb{R}$, we can obtain
+\begin{eqnarray}\label{equation-10}
+V(t)\leq\mu^{2N_\zeta(t,t_0)}\cdot e^{p(t-t_0)}\cdot V(t_0^+).
+\end{eqnarray}
+In the following, synchronizing impulses ($0<|\mu|<1$), inactive
+impulses ($|\mu|=1$), and desynchronizing impulses ($|\mu|>1$) will
+be separately discussed. Since the average impulsive interval of the
+impulsive sequence $\zeta=\{t_1,t_2,\cdots\}$ is equal to $T_a$, we
+have
+\begin{eqnarray}\label{model-5}
+\hspace{-1cm}\frac{t-t_0}{T_a}-N_0\leq N_{\zeta}(t,t_0)\leq
+\frac{t-t_0}{T_a}+N_0,~\forall T\geq t\geq 0.
+\end{eqnarray}
+If $0<|\mu|<1$, it follows from (\ref{equation-10}) and
+\eqref{model-5} that
+\begin{eqnarray}\label{equation-11}
+&&V(t)\nonumber\\&\leq&\mu^{2N_\zeta(t,t_0)}\cdot e^{p(t-t_0)}\cdot
+V(t_0^+)\nonumber\\&\leq&\mu^{2(\frac{t-t_0}{T_a}-N_0)}\cdot
+e^{p(t-t_0)}\cdot V(t_0^+)\nonumber\\&\leq&\mu^{-2N_0}\cdot
+e^{\frac{2ln(|\mu|)}{T_a}(t-t_0)}\cdot e^{p(t-t_0)}\cdot
+V(t_0^+)\nonumber\\&\leq&\mu^{-2N_0}\cdot
+e^{(\frac{2ln(|\mu|)}{T_a}+p)(t-t_0)}\cdot V(t_0^+)\nonumber\\
+&=&\mu^{-2N_0}\cdot e^{\eta(t-t_0)}\cdot V(t_0^+).
+\end{eqnarray}
+When $|\mu|=1$, $\mu^{2k}=1$. It follows from (\ref{equation-10})
+that
+\begin{eqnarray}\label{equation-11}
+V(t)&\leq& \mu^{2k}e^{p(t-t_0)}V(t_0^+)\nonumber\\
+&=&e^{p(t-t_0)}V(t_0^+)\nonumber\\
+&=&1\cdot e^{\eta(t-t_0)}V(t_0^+).
+\end{eqnarray}
+Similarly, when $|\mu|>1$, it follows from (\ref{equation-10}) and
+\eqref{model-5} that
+\begin{eqnarray}\label{equation-12}
+V(t)\leq\mu^{2N_0}\cdot e^{\eta(t-t_0)}\cdot V(t_0^+).
+\end{eqnarray}
+%%%%%%%%%%%%%%%%%For detailed derivation, see enclosed paragraph%%%%%%%%%%%%%%%
+%If $|\mu|>1$, it follows from (\ref{equation-10}) and
+%\eqref{model-5} that
+%\begin{eqnarray}\label{equation-12}
+%&&V(t)\nonumber\\&\leq&\mu^{2N_\zeta(t,t_0)}\cdot e^{p(t-t_0)}\cdot
+%V(t_0^+)\nonumber\\&\leq&\mu^{2(\frac{t-t_0}{T_a}+N_0)}\cdot
+%e^{p(t-t_0)}\cdot V(t_0^+)\nonumber\\&\leq&\mu^{2N_0}\cdot
+%e^{\frac{2ln(|\mu|)}{T_a}(t-t_0)}\cdot e^{p(t-t_0)}\cdot
+%V(t_0^+)\nonumber\\&\leq&\mu^{2N_0}\cdot
+%e^{(\frac{2ln(|\mu|)}{T_a}+p)(t-t_0)}\cdot
+%V(t_0^+)\nonumber\\&=&\mu^{2N_0}\cdot e^{\eta(t-t_0)}\cdot V(t_0^+).
+%\end{eqnarray}
+Summarizing inequalities \eqref{equation-11} and \eqref{equation-12}
+gives that there exists constant
+$M_0=\max\{\mu^{-2N_0},1,\mu^{2N_0}\}$, such that
+\begin{eqnarray}\label{equation-13}
+V(t)\leq M_0\cdot e^{\eta(t-t_0)}\cdot V(t_0^+),
+\end{eqnarray}
+which further implies that
+\begin{eqnarray}
+&&\frac{1}{2}\xi_i\xi_j\|x_i(t)-x_j(t)\|^2\nonumber\\
+&\leq&\frac{1}{2}\sum_{i=1,j=1}^N \xi_i\xi_j(x_i(t)-x_j(t))^T
+(x_i(t)-x_j(t))\nonumber\\&=&V(t)=O(e^{\eta (t-t_0)}),
+\end{eqnarray}
+where $w_{ij}=-\xi_i\xi_j$ for $i\neq j$ is utilized.
+
+Since $\eta<0$, globally exponential synchronization of impulsive
+dynamical network \eqref{model-4} is achieved according to
+Definition \ref{definition-exp-syn}. The proof is complete.
+\end{proof}
+\begin{remark}
+From the proof of Theorem \ref{theorem-1}, the following statements
+can be observed:
+\begin{itemize}
+\item When impulsive effects are desynchronizing ($|\mu|>1$), inequality
+\eqref{equation-12} is still true if $T_a$ is replaced by
+$\inf_{k\in \mathbb{N}^+}\{t_{k}-t_{k-1}\}$; then the criterion
+\eqref{equation-0} in Theorem \ref{theorem-1} becomes:
+\begin{eqnarray}\label{equation-01}
+\eta_{\inf}\stackrel{\vartriangle}{=}\frac{2ln(|\mu|)}{\inf_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}}+p<0.
+\end{eqnarray}
+Since $ln(|\mu|)>0$ and $T_a>\inf_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$, we can conclude that criterion
+\eqref{equation-0} obtained by $T_a$ is less conservative than
+criterion \eqref{equation-01} obtained by $\inf_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$.
+
+\item When impulsive effects are synchronizing ($|\mu|<1$), inequality
+\eqref{equation-11} is still correct if $T_a$ is replaced by
+$\sup_{k\in \mathbb{N}^+}\{t_{k}-t_{k-1}\}$; then the criterion
+\eqref{equation-0} in Theorem \ref{theorem-1} becomes:
+\begin{eqnarray}\label{equation-02}
+\eta_{\sup}\stackrel{\vartriangle}{=}\frac{2ln(|\mu|)}{\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}}+p<0.
+\end{eqnarray}
+Since $ln(|\mu|)<0$ and $T_a<\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$, criterion \eqref{equation-0}
+obtained by $T_a$ is easier to be satisfied and less conservative
+than criterion \eqref{equation-01} obtained by $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$.
+\end{itemize}
+It can be analytically concluded that our unified synchronization
+criterion is less conservative than the results in
+\cite{zhouj2007phya684,yangz2005ieeetcasii517,zhangqj2009cma1073,zhangh2006cdc2765,liub2008na1169,liub2005ieeetcasi1431,zhangg2007chaos043126,caism2008pla4990},
+which are obtained by using $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$ (synchronizing impulses) or
+$\inf_{k\in \mathbb{N}^+}\{t_{k}-t_{k-1}\}$ (desynchronizing
+impulses). Such statement will also be verified by numerical
+examples.
+\end{remark}
+\begin{remark}
+Once $\epsilon$ and $N_0$ are fixed, the average impulsive interval
+$T_a$ of the specified impulsive signal $\bar{\zeta}$ in the form of
+\eqref{equation-00} remains unchanged no matter how small $\epsilon$
+is or however large $N_0$ is. Hence, our result in Theorem
+\ref{theorem-1} is still valid when $\inf_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$ is extremely small, or $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$ is very large. However, most of the
+existing results do not hold under such circumstance.
+\end{remark}
+\begin{remark}
+It can be observed that the synchronization criterion derived in
+Theorem \ref{theorem-1} are not affected by the choice of the
+positive integer $N_0$. Hence, the positive integer $N_0$ can be
+selected to be very large to make $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$ very large, and our result can still
+be applicable. However, those results in
+\cite{zhangqj2009cma1073,zhangh2006cdc2765,liub2008na1169,liub2005ieeetcasi1431,zhangg2007chaos043126,caism2008pla4990}
+will no longer applicable when $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}$ is very large.
+\end{remark}
+\begin{remark}
+By referring to \cite{lujq2009ieeetnn1617}, the result can be
+extended to the case of one reducible coupling matrix $A$. This
+means that the network topology could be weakly connected graph
+containing rooted spanning tree (\cite{wucw2005non1057}). Due to
+limited page, we are unable to give detailed analysis, and will
+present it elsewhere.
+\end{remark}
+\section{Numerical examples}
+In this section, two numerical examples are given to illustrate that
+our analytical result is simultaneously valid for synchronizing
+impulses and desynchronizing impulses. A chaotic system is
+considered as the isolated node of the dynamical network, which is
+described by the following equation (\cite{zouf1993ieeetcas166}):
+\begin{eqnarray}\label{sec4.3-NN-in-example}
+\dot{x}(t)=Cx(t)+Bf(x(t)),
+\end{eqnarray}
+where $x(t)=(x_{1}(t),x_{2}(t),x_{3}(t))^T\in\mathbb{R}^3$ is the
+state vector, and the parameters are
+$C=\mbox{diag}\{-1.2,-1.2,-1.2\}$, $B=\left(
+\begin{array}{rrr}
+1.16&-1.5&-1.5\\
+-1.5&1.16&-2.0\\
+-1.2&2.0&1.16
+\end{array}\right)$, and nonlinear function
+$f(x(t))=(\tanh(x_{1}),\tanh(x_{2}),\tanh(x_{3}))^{T}$. Thus the
+Lipschitz constants can be obtained as $l_1=l_2=l_3=1$. System
+(\ref{sec4.3-NN-in-example}) has a chaotic attractor with initial
+value $x_{1}(t_0)=0.2,~x_{2}(t_0)=0.5,~x_{3}(t_0)=0.6$.
+\begin{example}\rm\label{example:1}
+In this example, we consider a BA scale-free
+(\cite{barabasi1999science509}) coupled dynamical network with
+\textit{desynchronizing impulses}. The scale-free network is
+generated by setting $N=100$ and $m=m_0=3$. In this simulation, one
+obtains that $\lambda_2(\tilde{A})=-0.025049$ and
+$\lambda_{\max}(W)=0.01$. It follows that $\gamma=2.5049$. Let the
+coupling strength $c=5$ and inner coupling matrix $\Gamma=I_3$. By
+simple calculation, one can obtain that $p=-0.94946$.
+
+Let the desynchronizing impulsive strength $\mu$ be $\mu=1.1$ and
+average impulsive interval $T_a$ be $T_a=0.25$. We can obtain that
+$\eta=-0.18698$. Hence, according to Theorem \ref{theorem-1},
+synchronization of the scale-free coupled dynamical network with
+desynchronizing impulses can be realized. The initial values of
+these systems are chosen randomly in the real number interval
+$[-10,10]$. Figure \ref{fig:1} depicts a desynchronizing impulsive
+signal with average impulsive interval $T_a=0.25$ and $N_0=10$, and
+corresponding trajectories of the impulsive dynamical network are
+simulated in Figure \ref{fig:2}.
+
+For the impulsive signal in Figure \ref{fig:1}, the lower bound of
+impulsive intervals is 0.05. If we utilize $\inf_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}=0.05$ instead of $T_a$, $\eta_{\inf}$
+becomes 2.86294 and criterion \eqref{equation-01} is not satisfied.
+Hence, for this example, criterion \eqref{equation-01} fail to judge
+whether the impulsive dynamical network can be synchronized if
+$\inf_{k\in \mathbb{N}^+}\{t_{k}-t_{k-1}\}$ is used. Hence, Theorem
+\ref{theorem-1} is less conservative than the results in
+\cite{zhouj2007phya684,yangz2005ieeetcasii517}.
+\end{example}
+\begin{figure}[!htbp]\centering
+\includegraphics[width=8cm,height=5.2cm]{sec2.3_desynchronizing_impulsive_sequence.eps}
+\caption{Desynchronizing impulsive sequence.} \label{fig:1}
+\end{figure}
+\begin{figure}[!htbp]\centering
+\includegraphics[width=8cm,height=5.2cm]{sec2.3_syn_SF_desynchronizing_impulses.eps}
+\caption{Synchronization of scale-free coupled dynamical network
+with desynchronizing impulses.} \label{fig:2}
+\end{figure}
+%\input{example_2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}\rm\label{example:2}
+We consider an NW directed small-world network
+(\cite{newman1999pre7332}) with \textit{synchronizing impulses} as
+the second example. In this example, the parameters are set as
+$N=200$, $k=2$, and edge-adding probability $0.01$. Thus, a
+small-world network can be generated. For this generated small-world
+network, the quantities are respectively
+$\lambda_{\mbox{max}}(W)=0.00817$ and
+$\lambda_2(\tilde{A})=-0.0129$. Hence, one can obtain that
+$\gamma=-\lambda_2(\tilde{A})/\lambda_{\max}(W)=1.58$. Let $c=5$ and
+$\Gamma=I_3$. By simple computation, we can obtain that $p=3.6752$.
+
+Let the strength of the synchronizing impulsive be $\mu=0.8$ and
+average impulsive interval be $T_a=0.12$. Hence, we can obtain that
+$\eta=-0.04385$. According to Theorem \ref{theorem-1}, it can be
+concluded that a complex dynamical network with synchronizing
+impulses can be synchronized. Figure \ref{fig:3} represents an
+impulsive sequence with $N_0=10$ and $T_a=0.12$, and error
+trajectories of the small-world coupled dynamical network are
+plotted in Figure \ref{fig:4}.
+
+For the impulsive signal in Figure \ref{fig:3}, the upper bound of
+the impulsive intervals is 0.93. If we utilize $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}=0.93$ instead of $T_a$, $\eta_{\sup}$
+becomes 3.19532 and criterion \eqref{equation-02} is not satisfied.
+Hence, for this example, criterion \eqref{equation-02} can not be
+utilized to judge whether the impulsive dynamical network can be
+synchronized if $\sup_{k\in \mathbb{N}^+}\{t_{k}-t_{k-1}\}$ is used.
+Hence, our analytical result \eqref{equation-0} is less conservative
+than the results in
+\cite{zhangqj2009cma1073,zhangh2006cdc2765,liub2008na1169,liub2005ieeetcasi1431,zhangg2007chaos043126,caism2008pla4990}.
+\end{example}
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=8cm,height=5.2cm]{sec2.3_synchronizing_impulsive_sequence.eps}
+\caption{Synchronizing impulsive sequence.} \label{fig:3}
+\end{figure}
+\begin{figure}[!htbp]\centering
+\includegraphics[width=8cm,height=5.2cm]{sec2.3_syn_SW_synchronizing_impulses.eps}
+\caption{Trajectories of small-world coupled error dynamical
+networks with synchronizing impulses.} \label{fig:4}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion and future work}\label{sec:conclusion}
+In this paper, a detailed analysis has been presented for the
+synchronization of complex dynamical networks with impulsive
+coupling. By utilizing the new concept of \textit{average impulsive
+interval}, a \textit{unified} synchronization criterion is derived
+for directed impulsive dynamical networks, which takes into account
+two types of impulses \textit{simultaneously}. According to
+theoretical analysis and numerical examples, our result has been
+proved to be less conservative. Moreover, simulations are given to
+confirm that the result can be applied to large-scale impulsive
+dynamical networks.
+
+In this paper, the impulsive strength is assumed to be invariable.
+However, in reality, the strength of impulsive signal can be
+different at different instants. Therefore, it would be of great
+interest to study unified synchronization criterion for networks
+with time-varying impulsive strength. Some good results have been
+obtained in this issue
+(\cite{guanzh2005ieeetac1058}\cite{guanzh2006ijbc229}). Moreover,
+unified synchronization criterion for impulsive networks with
+non-identical nodes will also be considered in the near future by
+using the concept of tolerant error.
+
+\section*{Acknowledgement}
+We wish to thank Mr. Chi Huang for his helpful discussion throughout
+the development of this research. The authors thank the referee and
+the editor for their valuable comments and constructive suggestions.
+
+%\bibliographystyle{automatica}   % "plain" or "unsrt", "alpha", "abbrv", etc.
+%\bibliography{D:/My_papers/biblio_journal}     % use data in file "biblio.bib"
+\begin{thebibliography}{xx}
+
+\harvarditem[Arenas {\em et al.}]{Arenas {\em et
+al.}}{2008}{arenas2008pr93} Arenas, A., A.~D\'{i}az-Guilera,
+J.~Kurths, Y.~Moreno and C.S. Zhou  (2008).
+  `{Synchronization in complex networks}'. {\em Physics Reports} {\bf
+  469}(3),~93--153.
+
+\harvarditem[Bainov and Simeonov]{Bainov and
+Simeonov}{1989}{bainov1989book} Bainov, D. and P.S. Simeonov
+(1989). {\em {Systems with Impulsive Effect:
+  Stability Theory and Applications}}. Ellis Horwood Limited, Chichester, UK.
+
+\harvarditem[Barab{\'a}si and Albert]{Barab{\'a}si and
+  Albert}{1999}{barabasi1999science509}
+Barab{\'a}si, A. and R.~Albert  (1999). `{Emergence of scaling in
+random
+  networks}'. {\em Science} {\bf 286}(5439),~509--512.
+
+\harvarditem[Cai {\em et al.}]{Cai {\em et
+al.}}{2008}{caism2008pla4990} Cai, S., J.~Zhou, L.~Xiang and Z.R.
+Liu  (2008). `{Robust impulsive
+  synchronization of complex delayed dynamical networks}'. {\em Physics Letters
+  A} {\bf 372}(30),~4990--4995.
+
+\harvarditem[Chen and Zheng]{Chen and Zheng}{2009{\em
+  a}}{chenwh2009automatica1481}
+Chen, W. and W.X. Zheng  (2009{\em a}). `{Input-to-state stability
+and integral
+  input-to-state stability of nonlinear impulsive systems with delays}'. {\em
+  Automatica} {\bf 45}(6),~1481--1488.
+
+\harvarditem[Chen and Zheng]{Chen and Zheng}{2009{\em
+  b}}{chenwh2009ieeetcasi1248}
+Chen, W.-H. and W.~X. Zheng  (2009{\em b}). `Global exponential
+stability of
+  impulsive neural networks with variable delay: An lmi approach'. {\em IEEE
+  Transactions on Circuits and Systems-I} {\bf 56}(6),~1248--1259.
+
+\harvarditem[Chung]{Chung}{1997}{chung1997book} Chung, F.  (1997).
+{\em {Spectral Graph Theory}}. American Mathematical
+  Society.
+
+\harvarditem[Gao {\em et al.}]{Gao {\em et
+al.}}{2006}{gaohj2006pla263} Gao, H., J.~Lam and G.R. Chen  (2006).
+`{New criteria for synchronization
+  stability of general complex dynamical networks with coupling delays}'. {\em
+  Physics Letters A} {\bf 360}(2),~263--273.
+
+\harvarditem[Guan {\em et al.}]{Guan {\em et
+al.}}{2006}{guanzh2006ijbc229} Guan, Z., D.J. Hill and J.~Yao
+(2006). `{A hybrid impulsive and switching
+  control strategy for synchronization of nonlinear systems and application to
+  Chua's chaotic circuit}'. {\em International Journal of Bifurcation and
+  Chaos} {\bf 16},~229--238.
+
+\harvarditem[Guan {\em et al.}]{Guan {\em et
+al.}}{2005}{guanzh2005ieeetac1058} Guan, Z., D.J. Hill and X.~Shen
+(2005). `{On hybrid impulsive and switching
+  systems and application to nonlinear control}'. {\em IEEE Transactions on
+  Automatic Control} {\bf 50}(7),~1058--1062.
+
+\harvarditem[Hespanha and Morse]{Hespanha and
+Morse}{1999}{hespanha1999cdc2655} Hespanha, J. and A.S. Morse
+(1999). `{Stability of switched systems with
+  average dwell-time}'. {\em 38th Proc. IEEE Conf. Decision Control} {\bf
+  3},~2655--2660.
+
+\harvarditem[Hespanha {\em et al.}]{Hespanha {\em et
+  al.}}{2005}{hespanha2005cdc3992}
+Hespanha, J., D.~Liberzon and A.R. Teel  (2005). `{On input-to-state
+stability
+  of impulsive systems}'. {\em 44th Proc. IEEE Conf. Decision Control}
+  pp.~3992--3997.
+
+\harvarditem[Hoppensteadt and Izhikevich]{Hoppensteadt and
+  Izhikevich}{2000}{hoppensteadt2000ieeetnn734}
+Hoppensteadt, F. and E.M. Izhikevich  (2000). `{Pattern recognition
+via
+  synchronization in phase-locked loop neural networks}'. {\em IEEE
+  Transactions on Neural Networks} {\bf 11}(3),~734--738.
+
+\harvarditem[Horn and Johnson]{Horn and
+Johnson}{1990}{horn1990cambridgebook} Horn, R. and C.R. Johnson
+(1990). {\em {Matrix Analysis}}. Cambridge
+  University Press.
+
+\harvarditem[Krinsky {\em et al.}]{Krinsky {\em et
+  al.}}{1991}{krinsky1991phyd247}
+Krinsky, V., V.N. Biktashev and I.R. Efimov  (1991). `{Autowave
+principles for
+  parallel image processing}'. {\em Physica D} {\bf 49}(1-2),~247--253.
+
+\harvarditem[Li and Chen]{Li and Chen}{2006}{liz2006ieeetcas} Li, Z.
+and G.R. Chen  (2006). `{Global synchronization and asymptotic
+stability
+  of complex dynamical networks}'. {\em IEEE Transactions on Circuits and
+  Systems-II} {\bf 53}(1),~28--33.
+
+\harvarditem[Liberzon]{Liberzon}{2003}{liberzon2003book} Liberzon,
+D.  (2003). {\em {Switching in Systems and Control}}. Springer.
+
+\harvarditem[Liu and Hill]{Liu and Hill}{2007}{liub2007cdc103} Liu,
+B. and D.J. Hill  (2007). {Robust stability of complex impulsive
+dynamical
+  systems}. In `46th Proc. IEEE Conf. Decision Control'. pp.~103--108.
+
+\harvarditem[Liu {\em et al.}]{Liu {\em et al.}}{2008{\em
+a}}{liub2008na1169} Liu, B., K.L. Teo and X.~Liu  (2008{\em a}).
+`{Robust exponential stabilization
+  for large-scale uncertain impulsive systems with coupling time-delays}'. {\em
+  Nonlinear Analysis} {\bf 68}(5),~1169--1183.
+
+\harvarditem[Liu {\em et al.}]{Liu {\em et
+al.}}{2005}{liub2005ieeetcasi1431} Liu, B., X.Z. Liu, G.R. Chen and
+H.Y. Wang  (2005). `{Robust impulsive
+  synchronization of uncertain dynamical networks}'. {\em IEEE Transactions on
+  Circuits and Systems-I} {\bf 52}(7),~1431--1441.
+
+\harvarditem[Liu {\em et al.}]{Liu {\em et al.}}{2008{\em
+  b}}{liuyl2008ieeetsmc1314}
+Liu, Y., Z.~Wang, J.~Liang and X.~Liu  (2008{\em b}).
+`{Synchronization and
+  state estimation for discrete-time complex networks with distributed
+  delays}'. {\em IEEE Transactions on Systems, Man and Cybernetics, Part B}
+  {\bf 38}(5),~1314--1325.
+
+\harvarditem[Lu and Ho]{Lu and Ho}{2010}{lujq2010ieeesmcb350} Lu, J.
+and D.W.C. Ho  (2010). `{Globally exponential synchronization and
+  synchronizability for general dynamical networks }'. {\em IEEE Transactions
+  on Systems, Man and Cybernetics, Part B} {\bf 40}(2),~350--361.
+
+\harvarditem[Lu {\em et al.}]{Lu {\em et al.}}{2009{\em
+  a}}{lujq2009nonlinearity889}
+Lu, J., D.W.C. Ho and L.G. Wu  (2009{\em a}). `{Exponential
+stabilization in
+  switched stochastic dynamical networks}'. {\em Nonlinearity} {\bf
+  22},~889--911.
+
+\harvarditem[Lu {\em et al.}]{Lu {\em et al.}}{2009{\em
+  b}}{lujq2009ieeetnn1617}
+Lu, J., D.W.C. Ho and Z.D. Wang  (2009{\em b}). `{Pinning
+stabilization of
+  linearly coupled stochastic neural networks via minimum number of controllers
+  }'. {\em IEEE Transactions on Neural Networks} {\bf 20},~1617--1629.
+
+\harvarditem[Lu and Chen]{Lu and Chen}{2006}{luwl2006phyd214} Lu, W.
+and T.~Chen  (2006). `{New approach to synchronization analysis of
+  linearly coupled ordinary differential systems}'. {\em Physica D} {\bf
+  213}(2),~214--230.
+
+\harvarditem[Newman and Watts]{Newman and
+Watts}{1999}{newman1999pre7332} Newman, M. and D.J. Watts  (1999).
+`{Scaling and percolation in the small-world
+  network model}'. {\em Physical Review E} {\bf 60}(6),~7332--7342.
+
+\harvarditem[Pecora and Carroll]{Pecora and
+Carroll}{1998}{pecora1998prl2109} Pecora, L. and T.L. Carroll
+(1998). `{Master stability functions for
+  synchronized coupled systems}'. {\em Physical Review Letters} {\bf
+  80}(10),~2109--2112.
+
+\harvarditem[Wang and Chen]{Wang and
+Chen}{2002}{wangxf2002ieeetcas54} Wang, X. and G.R. Chen  (2002).
+`{Synchronization in scale-free dynamical
+  networks: robustness and fragility}'. {\em IEEE Transactions on Circuits and
+  Systems-I} {\bf 49}(1),~54--62.
+
+\harvarditem[Wang {\em et al.}]{Wang {\em et
+  al.}}{2010}{wangyw2010automatica197}
+Wang, Y., H.O. Wang, J.W. Xiao and Z.H. Guan  (2010).
+`{Synchronization of
+  complex dynamical networks under recoverable attacks}'. {\em Automatica} {\bf
+  46},~197--203.
+
+\harvarditem[Wu]{Wu}{2005}{wucw2005non1057} Wu, C.  (2005).
+`{Synchronization in networks of nonlinear dynamical systems
+  coupled via a directed graph}'. {\em Nonlinearity} {\bf 18}(3),~1057--1064.
+
+\harvarditem[Wu]{Wu}{2007}{wucw2007book} Wu, C.  (2007). {\em
+{Synchronization in Complex Networks of Nonlinear
+  Dynamical Systems}}. World Scientific Publishing Company.
+
+\harvarditem[Yang]{Yang}{2001}{yangt2001book} Yang, T.  (2001). {\em
+{Impulsive Systems and Control: Theory and
+  Application}}. New York: Nova Science.
+
+\harvarditem[Yang and Xu]{Yang and Xu}{2005}{yangz2005ieeetcasii517}
+Yang, Z. and D.~Xu  (2005). `{Stability analysis of delay neural
+networks with
+  impulsive effects}'. {\em IEEE Transactions on Circuits and Systems-II} {\bf
+  52}(8),~517--521.
+
+\harvarditem[Yao {\em et al.}]{Yao {\em et
+al.}}{2009}{yaoj2009automatica2107} Yao, J., Z.H. Guan and D.J. Hill
+(2009). `{Passivity-based control and
+  synchronizationnext term of general complex dynamical networks}'. {\em
+  Automatica} {\bf 45}(9),~2107--2113.
+
+\harvarditem[Yu {\em et al.}]{Yu {\em et
+al.}}{2009}{yuww2009automatica429} Yu, W., G.R. Chen and J.H. L{\"u}
+(2009). `{On pinning synchronization of
+  complex dynamical networks}'. {\em Automatica} {\bf 45},~429--435.
+
+\harvarditem[Zhang {\em et al.}]{Zhang {\em et
+  al.}}{2007}{zhangg2007chaos043126}
+Zhang, G., Z.~Liu and Z.~Ma  (2007). `{Synchronization of complex
+dynamical
+  networks via impulsive control}'. {\em Chaos} {\bf 17},~043126.
+
+\harvarditem[Zhang {\em et al.}]{Zhang {\em et
+al.}}{2006}{zhangh2006cdc2765} Zhang, H., Z.H. Guan and D.W.C. Ho
+(2006). `{On synchronization of hybrid
+  switching and impulsive networks}'. {\em 45th Proc. IEEE Conf. Decision
+  Control} pp.~2765--2770.
+
+\harvarditem[Zhang {\em et al.}]{Zhang {\em et
+  al.}}{2008}{Zhangh2008automatica1004}
+Zhang, H., Z.H. Guan and G.~Feng  (2008). `{Reliable dissipative
+control for
+  stochastic impulsive systems}'. {\em Automatica} {\bf 44}(4),~1004--1010.
+
+\harvarditem[Zhang and Lu]{Zhang and Lu}{2009}{zhangqj2009cma1073}
+Zhang, Q. and J.A. Lu  (2009). `{Impulsively control complex
+networks with
+  different dynamical nodes to its trivial equilibrium}'. {\em Computers and
+  Mathematics with Applications} {\bf 57},~1073--1079.
+
+\harvarditem[Zhou {\em et al.}]{Zhou {\em et
+al.}}{2007}{zhouj2007phya684} Zhou, J., L.~Xiang and Z.~Liu  (2007).
+`{Synchronization in complex delayed
+  dynamical networks with impulsive effects}'. {\em Physica A} {\bf
+  384}(2),~684--692.
+
+\harvarditem[Zou and Nossek]{Zou and
+Nossek}{1993}{zouf1993ieeetcas166} Zou, F. and J.A. Nossek  (1993).
+`{Bifurcation and chaos in cellular neural
+  networks}'. {\em IEEE Transactions on Circuits and Systems-I} {\bf
+  40}(3),~166--173.
+
+\end{thebibliography}
+
+
+\section*{Appendix}
+\begin{example}\label{example:0}
+This example is devoted to the discussion of non-uniformly
+distributed impulses. A specific example is given to show that lower
+bound or upper bound of impulsive intervals, which has been widely
+used in literature, can not precisely describe the occurrence
+frequency of impulses.
+
+We give a specific impulsive signal as
+$\bar{\zeta}=\{\epsilon,2\epsilon,...,(N_0-1)\epsilon,N_0T_a,N_0T_a+\epsilon,N_0T_a+2\epsilon,...,N_0T_a+(N_0-1)\epsilon,2N_0T_a,...\}$,
+where $\epsilon$ and $T_a$ are positive numbers satisfies
+$\epsilon<T_a$, and $N_0$ is a positive integer. The impulsive
+signal $\bar{\zeta}=\{t_1,t_2,t_3,...\}$ can also be re-written in
+the following form:
+\begin{eqnarray}\label{equation-00}
+\hspace{-0.5cm}t_k-t_{k-1}=\left\{
+\begin{array}{cl}
+\epsilon,&\hspace{0.1cm}\mbox{if}~\mbox{mod}(k,N_0)\neq0,\\
+N_0(T_a-\epsilon)+\epsilon,&\hspace{0.1cm}\mbox{if}~\mbox{mod}(k,N_0)=0.~
+\end{array}\right.
+\end{eqnarray}
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=8cm,height=5.2cm]{sec2.3_typical_impulsive_sequence.eps}
+\caption{Example of a specific impulsive sequence described in
+\eqref{equation-00} with $\epsilon=0.05$, $N_0=10$ and $T_a=0.5$.
+Such an impulsive sequence simultaneously owns small lower bound and
+large upper bound of impulsive intervals.} \label{fig:0}
+\end{figure}
+
+From the structure of the impulsive signal $\bar{\zeta}$, we can
+obtain that $\inf_{k\in \mathbb{N}^+}\{t_{k}-t_{k-1}\}=\epsilon$ and
+$\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}=N_0(T_a-\epsilon)+\epsilon$. Figure
+\ref{fig:0} represents such an impulsive signal with
+$\epsilon=0.05$, $N_0=10$ and $T_a=0.5$. It can be observed from
+Figure \ref{fig:0} that impulses occur frequently in $(t^2,t^3)$,
+whereas they seldom occur in $(t^1,t^2)$. When $\epsilon$ is
+sufficiently small and $N_0$ is sufficiently large, the quantity
+$\inf_{k\in \mathbb{N}^+}\{t_{k}-t_{k-1}\}=\epsilon$ will be very
+small, and the quantity $\sup_{k\in
+\mathbb{N}^+}\{t_{k}-t_{k-1}\}=N_0(T_a-\epsilon)+\epsilon$ will be
+very big. Under such circumstance, the results in
+(\cite{zhouj2007phya684,yangz2005ieeetcasii517,zhangqj2009cma1073,zhangh2006cdc2765,liub2008na1169,liub2005ieeetcasi1431,zhangg2007chaos043126,caism2008pla4990}),
+would not be applicable.
+\end{example}
+
+\end{document}

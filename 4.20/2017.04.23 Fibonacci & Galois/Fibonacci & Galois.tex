@@ -1,0 +1,876 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+
+%\documentclass[twocolumn,journal]{IEEEtran}
+%\documentclass[onecolumn,draft]{IEEEtran}
+%\documentclass[twocolumn,journal]{IEEEtran}
+%\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment t                                                      his line out
+                                                          % if you need a4paper
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4
+\documentclass[twocolumn]{autart}
+\usepackage{amsfonts,amssymb}
+\usepackage{amsmath, natbib}
+\topmargin=.75em                                                         % paper
+
+
+%\setcounter{page}{1} % The number of 1st page is 1
+\usepackage{flafter}
+\usepackage{fleqn}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{psfrag}
+\usepackage{graphicx,subfigure}
+\usepackage{hyperref}%\href{url}{text}
+\usepackage{url}
+\usepackage{pstricks,fancybox}%color added
+\usepackage{graphicx}
+\usepackage{subfig}% for pdf, bitmapped graphics files
+\usepackage{epsfig} % for postscript graphics files
+\usepackage{mathptmx} % assumes new font selection scheme installed
+\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+%\usepackage{amsmath}
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{property}{Property}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{Assumption}
+\newtheorem{hypothesis}{Hypothesis}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{notation}{Notation}
+%\newtheorem{algorithm}{Algorithm}
+
+\def\proof{\par{ \textbf{Proof}}. \ignorespaces}
+
+\def\endproof{\vbox{\hrule height0.6pt\hbox{%
+   \vrule height1.3ex width0.6pt\hskip0.8ex
+   \vrule width0.6pt}\hrule height0.6pt
+  }}
+
+%\IEEEoverridecommandlockouts                           % This command is only
+                                                          % needed if you want to
+                                                          % use the \thanks command
+%\overrideIEEEmargins
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{definition}{Definition}
+%\newtheorem{corollary}{Corollary}
+%\newtheorem{example}{Example}
+%\newtheorem{assumption}{Assumption}
+%\newtheorem{hypothesis}{Hypothesis}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{remark}{Remark}
+%\newtheorem{notation}{Notation}
+%\newtheorem{algorithm}{Algorithm}
+%\newtheorem{property}{Property}
+%\newcommand{\for}{\textbf{for}}
+%\newcommand{\STATE}{\quad}
+
+% The following packages can be found on http:\\www.ctan.org
+%\usepackage{graphicx}
+%\usepackage{subfig}% for pdf, bitmapped graphics files
+%\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+%\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{multirow}
+%\usepackage{amsmath}
+%\usepackage{xcolor}
+\makeatother
+
+\begin{document}
+
+\begin{frontmatter}
+\title{The Transformation between the Galois NLFSR and Fibonacci NLFSR via semi-tensor product of matrix
+\thanksref{footnoteinfo}}
+\thanks[footnoteinfo]{This work was supported by the National Natural Science Foundation of China under Grant No. 61573102, and China Postdoctoral Science Foundation under Grant No. 2014M560377 and 2015T80483, and Jiangsu Province Six Talent Peaks Project under Grant 2015-ZNDW-002.}
+
+\author[1,2]{Jianquan Lu}\ead{jqluma@gmail.com;jqluma@seu.edu.cn},
+\author[1]{Meilin Li}\ead{meilin\_li0310@foxmail.com},
+\author[3]{Tingwen Huang}\ead{tingwen.huang@qatar.tamu.edu}
+\author[4]{Yang Liu}\ead{liuyang@zjnu.edu.cn}
+\author[1]{Jinde Cao}\ead{jdcao@seu.edu.cn}
+
+\address[1]{Department of  Mathematics,
+Southeast University, Nanjing 210096, China}
+\address[2]{Department of Mathematics, City University of
+ Hong Kong, Hong Kong, China}
+\address[3]{Texas A\&M University at Qatar, Doha 23874, Qatar}
+\address[4]{Department of Mathematics, Zhejiang Normal University,
+Jinhua 321004, China}
+%\author{Jianquan Lu \IEEEmembership{Member,~IEEE}, Meilin Li, Tingwen Huang, Yang Liu, Jinde Cao \IEEEmembership{Fellow,~IEEE}
+%\thanks{This work was supported by the National Natural Science Foundation of China under Grant No. 61573102, and China Postdoctoral Science Foundation under Grant No. 2014M560377 and 2015T80483, and Jiangsu Province Six Talent Peaks Project under Grant 2015-ZNDW-002. }%
+
+%\thanks{Jianquan Lu is with the School of Mathematics, Southeast University, Nanjing 210096, China {\tt\small jqluma@seu.edu.cn}}
+%\thanks{Meilin Li is is with the School of Mathematics, Southeast University, Nanjing 210096, China {\tt\small 220151318@seu.edu.cn}}
+%\thanks{Tingwen Huang is with Texas A\&M University at Qatar, Doha 23874, Qatar {\tt\small tingwen.huang@qatar.tamu.edu}}
+%\thanks{Yang Liu is with the Department of Mathematics, Zhejiang Normal University,Jinhua 321004, China
+%{\tt\small liuyang@zjnu.edu.cn}}
+%\thanks{ Jinde Cao is with the School of Mathematics, Southeast University, Nanjing 210096, China {\tt\small jdcao@seu.edu.cn}}}
+
+\begin{keyword}Galois NLFSR, Fibonacci NLFSR, \textit{uniform} NLFSR, semi-tensor product.\end{keyword}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+In this paper, Galois nonlinear feedback shift register (NLFSR) and Fibonacci NLFSR are regarded as two Boolean networks (BNs), and semi-tensor product (STP) of matrices is used to convert these two nonlinear feedback shift registers (NLFSRs) into two equivalent algebraic equations. Based on STP, a novel way is proposed to investigate the transformation between the Galois NLFSR and Fibonacci NLFSR. Firstly, we redefine the uniform NLFSR, and the properties of uniform NLFSR have been investigated. Secondly, two bijections between initial states of Galois NLFSR and Fibonacci NLFSR are obtained. Thirdly, two algorithms are provided to achieve the transformation between the Galois NLFSR and Fibonacci NLFSR. Compared with some existing methods, the method provided in this paper is easier to realize, and we extend the range of Galois NLFSR which can be transformed to a Fibonacci NLFSR. At last, two examples illustrate the results obtained in this paper.
+\end{abstract}
+%\begin{keywords}
+%Galois NLFSR, Fibonacci NLFSR, \textit{uniform} NLFSR, semi-tensor product
+%\end{keywords}
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+The information security is important for our society. The information encryption is essential. Pseudo-random sequences as signal form with good correlation properties have been widely used in many applications, such as secure communication, delay measurement and noise and spread spectrum communication generator. The linear feedback shift register (LFSR) is one of the most popular configurations for generating pseudo-random sequences (\cite{goresky2012algebraic}, \cite{golomb1982shift}, \cite{goresky2006pseudonoise}), where its current state is decided by a linear function of its previous states. In \cite{Li2014The}, the author investigated the some properties about LFSR. The advantages of LFSR are fast, easy and simple to implement in hardware and software, and they can generate random sequences with same statistical distribution of 0's and 1's (\cite{golomb1982shift}). Nevertheless, they are not safe in stream cipher. Inspecting $2n$ consecutive bits of it's output sequence can deduce the structure of a $n$-bit LFSR (\cite{massey1969shift}).
+
+
+To solve this problem, nonlinear feedback shift register (NLFSR) was proposed in (\cite{golomb1982shift}), where its feedback functions are nonlinear Boolean functions. Due to the complicate structures of NLFSR, the output sequences of NLFSR are very difficult to deduce with cryptanalytic method, such as correlation attacks (\cite{meier1989fast}). Many different designed methods of NLFSR-based stream ciphers have been proposed in (\cite{hell2007grain}, \cite{gammel2006nlfsr}, \cite{chen2004dragon}, \cite{gammel2007achterbahn}).
+
+
+
+There exist two types of nonlinear feedback shift registers (NLFSRs): Galois NLFSR and Fibonacci NLFSR. The Galois NLFSR is shown in Fig. \ref{uniform}, which consists of a number of binary storage elements from left to right as $n-1,n-2,...,1,0$, and each bit is updated by its own feedback function which relates to every bit. The value of the $0$-th bit is the output of Galois NLFSR. There is a special kind of Galois NLFSR which has been proposed in (\cite{Dubrova2010Finding}), named uniform Galois NLFSR as shown in Fig. {\ref{g}}. The $i$-th feedback function of uniform Galois NLFSR only relates to the $i$-th bit and the right bits of $i$-th bit. While for the Fibonacci NLFSR, as show in Fig. \ref{f}, only the $(n-1)$-th bit is updated by the feedback function. At each time, the value of the $i$-th bit is moved to the $(i-1)$-th bit in Fibonacci NLFSR. These two types of NLFSRs have their own disadvantages. The depth of the circuits implementing the Fibonacci NLFSR is larger than the depth of the circuits implementing the Galois NLFSR (\cite{Dubrova2009A}). But for uniform Galois NLFSR, the period of the output sequence may not equal to the length of the longest cyclic sequence of its consecutive states. In (\cite{zhiqiang2013transformation}), Lin $et$ $al.$ proved that the uniform Galois NLFSR can be transformed to an equivalent Fibonacci NLFSR. In (\cite{Dubrova2009A}), a method of the transformation from Fibonacci NLFSR to Galois NLFSR was provided. In (\cite{Dubrova2010Finding}), Dubrova provided a method to find the matching initial states between Fibonacci NLFSR and its equivalent Galois NLFSR. For an arbitrary initial state of a NLFSR $A$, there is an initial state in equivalent NLFSR $B$ which can deduce same output sequence, and the initial states of NLFSR $A$ and NLFSR $B$ are one-to-one mapping. Unfortunately the methods in (\cite{Dubrova2010Finding}, \cite{Dubrova2009A}, \cite{zhiqiang2013transformation}) all need algebraic calculation, and the methods in (\cite{Dubrova2010Finding}, \cite{Dubrova2009A}, \cite{zhiqiang2013transformation}) can not be realized through programming. For a given $n$-bit NLFSR with a big $n$, the methods in (\cite{Dubrova2010Finding}, \cite{Dubrova2009A}, \cite{zhiqiang2013transformation}) are not applicable.
+
+
+Lately, a new mathematical tool of matrix calculation named the semi-tensor product (STP) of matrices was proposed in (\cite{Cheng2011Analysis}). This STP method has been used to study Boolean networks (BNs). In (\cite{lu2016controllability}), Lu $et$ $al.$ studied the controllability of delayed Boolean control networks (BCNs) based on the method of STP. By using STP, the pinning controllability problem, synchronization problem, stabilization problem, observability problem, robust control problem and output tracking control problem of BCNs have been investigated in (\cite{lu2016pinning}, \cite{zhong2014synchronization}, \cite{Liu2016Sampled}, \cite{li2011controllability}, \cite{cheng2009controllability}, \cite{laschov2012controllability}, \cite{li2015output}, \cite{li2016robust}, \cite{li2017stabilization}). Based on the method of STP, the stability of BNs has been studied in (\cite{cheng2011stability}). The controllability problem of BNs was investigated in (\cite{Li2015Controllability}, \cite{liu2014controllability}) by using the method of STP. In (\cite{guo2013semi}), the method of STP was used to study the problems of game theory. The tool of STP has also been successfully applied to the Fibonacci NLFSR (\cite{Zhong2014A}, \cite{Zhong2014Stability}, \cite{Zhong2016Driven}). Up to now some interesting results about Fibonacci NLFSR have been obtained by using STP. In this paper, motivated by above discussions , the method of STP is used to study the transformation between Galois NLFSR and Fibonacci NLFSR.
+
+
+In this paper, we investigate the transformation between Fibonacci NLFSR and Galois NLFSR by using STP. Firstly, the Fibonacci NLFSR and the Galois NLFSR are regarded as BNs. Then, we redefine the uniform NLFSR, and the properties of uniform NLFSR will be investigated. Secondly, two bijections $\Phi$, $\Psi$ between initial states of Galois NLFSR and Fibonacci NLFSRs are obtained. Thirdly, two algorithms are provided to achieve the transformation between the Galois NLFSR and Fibonacci NLFSR. At last, two examples are presented to illustrate the results obtained in this paper. The contribution of this paper:
+\begin{itemize}
+ \item Compared with the results in (\cite{Dubrova2009A}, \cite{zhiqiang2013transformation}), the transformation between these two types of NLFSRs can be achieved by programming, and hence the methods provided in this paper is more convenient to realize and implement.
+ \item The initial states matching between two types of NLFSRs can be easily obtained by computations.
+ \item We expand the range of Galois NLFSR that can be transformed to Fibonacci NLFSR.
+ \end{itemize} %前面可以加点关于别的转化方法的介绍
+
+
+
+ The remainder of this paper is organized as follows. Section 2 gives some preliminaries on STP, Galois NLFSR, Fibonacci NLFSR and the definition of isomorphic graph. In Section 3, we study the properties of uniform NLFSR, and present two algorithms to achieve the transformation between these two types of NLFSRs. In Section 4, two example are given to illustrate our theoretical results. At last, a conclusion is given.
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{uniform.eps}
+\caption{The uniform Galois NLFSR}
+\label{uniform}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{Galois.eps}
+\caption{The Galois NLFSR}
+\label{g}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=3in]{fsr.eps}
+\caption{The Fibonacci NLFSR}
+\label{f}
+\end{figure}
+
+\section{Preliminaries}
+In this section, the STP of matrices is firstly reviewed. Then we obtain the algebraic expressions of Galois NLFSR and Fibonacci NLFSR. By using the STP, multi-linear forms of Galois NLFSR and Fibonacci NLFSR are obtained. Finally, we revisit some related results about Fibonacci NLFSR and also some definitions about NLFSR here. We first give some notations used in this paper.
+\begin{itemize}
+  \item $\mathcal{D}=\{0,1\}$.
+  \item $I_n:$ the identity matrix of dimension $n$.
+  \item $\delta^i_{2^n}:$ the $i$-th column of identity matrix $I_n$.
+  \item $\Delta_{2^n}=\{\delta^i_{2^n}|i=1,2,3,...,2^n\}$.
+  \item $\mathcal{L}_{n\times m}:$ the set of $n\times m$ matrices, whose column belong to $\Delta_{n}$. For a matrix $L\in\mathcal(L)_{n\times m}$, and $L=[\delta^{i_1}_{n}~ \delta^{i_2}_{n}~ ... ~ \delta^{i_m}_{n}]$, we write $L=\delta_{2^n}[i_1~ i_2~ ... ~ i_m]$ for simplicity. \item $col_i(L):$ the $i$-th column of matrix $L$.
+  \item $col(L):$ the set of all column of matrix $L$.
+  \item $\mathbb{R}:$ the set of all real number.
+  \item $|S|:$ the base of set $S$.
+  \item $N:$ the set of all integers.
+\end{itemize}
+\subsection{Semi-Tensor Product of matrices}
+In this subsection, we give the definition of STP of matrices.
+\begin{definition}\label{stp}[\cite{Cheng2011Analysis}]
+Let $A\in\mathbb{R}^{n\times m}$, $B\in \mathbb{R}^{p\times q}$. The \textit{semi-tensor product} of $A$ and $B$ is defined as:
+\begin{equation}
+A\ltimes B=(A\otimes I_{\frac{l}{m})}(B\otimes I_{\frac{l}{p}})
+\end{equation}
+where $l$ is the least common multiple of $m$ and $p$.
+\end{definition}
+
+Obviously, if $m=p$ in Definition \ref{stp}, then the STP of $A$ and $B$ is reduced to their conventional matrix product $AB$.
+
+We identify $\Delta_{2}\sim \mathcal{D}$ i.e $(\delta^1_2\sim 1,\delta^2_2\sim 0)$, and $\delta^1_2(\delta^2_2)$ is called the vector form of logical value $1(0)$.
+
+\begin{lemma}\label{lemma1}[\cite{Zhong2014A}]
+Any Boolean function $f(x_1,x_2,...,x_n)$ with variables $x_1,x_2,...,x_n\in \Delta_2$ can be expressed as a multi-linear form:
+\begin{equation}
+f(x_1,x_2,...,x_n)=Fx_1\ltimes x_2\ltimes ...\ltimes x_n.
+\end{equation}
+where $F\in \mathcal{L}_{2\times 2^n}$ is called the \textit{structure matrix} of $f$, and $F$ can be uniquely expressed as
+\begin{equation}
+F=\left[
+    \begin{array}{cccc}
+      s_1 & s_2 & ... & s_{2^{n}} \\
+      1-s_1 & 1-s_2 & ... & 1-s_{2^n} \\
+    \end{array}
+  \right]
+\end{equation}
+with $[s_1,s_2,...,s_{2^n}]$ being the truth table of $f$, arranged in the reverse alphabet order.
+\end{lemma}
+
+In the following, we omit the symbol $\ltimes$ for simplicity.
+
+
+\subsection{Galois NLFSR and Fibonacci NLFSR}
+An NLFSR consists of $n$ binary memory devices, which is called bits. The output of a NLFSR is the value of the $0$-th bit.\\
+An $n$-bit Galois NLFSR can be described by a system of $n$ nonlinear equations:
+\begin{eqnarray}\label{gnsr}
+ \left\{ \begin{aligned}
+&y_0(t+1)=f_0(y_0(t),y_1(t),...,y_{n-1}(t)),\\
+&y_1(t+1)=f_1(y_0(t),y_1(t),...,y_{n-1}(t)),\\
+&\vdots \\
+&y_{n-1}(t+1)=f_{n-1}(y_0(t),y_1(t),...,y_{n-1}(t)),
+\end{aligned} \right.
+\end{eqnarray}
+where $f_i:\mathcal{D}^n\rightarrow \mathcal{D},i\in\{0,1,2...,n-1\}$ is logical function, and $y_i\in \mathcal{D},i\in\{0,1,2,...,n-1\}$. Let $(y_0(t),y_1(t),...,y_{n-1}(t))$ denote the state of the Galois NLFSR at time $t$.
+
+By means of STP and Lemma \ref{lemma1}, the logical system (\ref{gnsr}) can be expressed in an algebraic form. Let $y(t)=y_0(t)\ltimes y_1(t)\ltimes ...\ltimes y_{n-1}(t)$, then we can express the system (\ref{gnsr}) as follows:
+ \begin{eqnarray}\label{gnsr1}
+ \left\{ \begin{aligned}
+&y_0(t+1)=F_0y(t),\\
+&y_1(t+1)=F_1y(t),\\
+&\vdots \\
+&y_{n-1}(t+1)=F_{n-1}y(t).
+\end{aligned} \right.
+\end{eqnarray}
+where $F_0,F_1,...,F_{n-1}\in \mathcal{L}_{2\times 2^n}$. Moreover, (\ref{gnsr1}) can further be converted into the following form:
+\begin{equation}\label{gnsr2}
+y(t+1)=L_Gy(t)
+\end{equation}
+where $L_G\in \mathcal{L}_{2^n\times 2^n}$. Equation (\ref{gnsr2}) is called the algebraic representation of Galois NLFSR (\ref{gnsr}).
+\begin{lemma}\label{reconstruct}[\cite{Cheng2011Analysis}]
+Let (\ref{gnsr2}) be the algebraic representation of Galois NLFSR, and let $F_i$ be the structure matrix of $f_i$, for $i=0,1,...,n-1$. Then
+\begin{equation}
+F_i=S_iL_G,  i=0,...,n-1
+\end{equation}
+where $S_i=1_{2^i}\otimes I_2\otimes 1_{2^{n-i-1}}$ for each $i$.
+\end{lemma}
+
+An $n$-bit Fibonacci NLFSR can be described as follows:
+ \begin{eqnarray}\label{fnsr}
+ \left\{ \begin{aligned}
+&x_0(t+1)=x_1(t),\\
+&x_1(t+1)=x_2(t),\\
+&\vdots \\
+&x_{n-2}(t+1)=x_{n-1}(t),\\
+&x_{n-1}(t+1)=f(x_0(t),x_1(t),...,x_{n-1}(t)).
+\end{aligned} \right.
+\end{eqnarray}
+where $x_i\in \mathcal{D},i=1,2,...,2^n$, $f:\mathcal{D}^n\rightarrow \mathcal{D}$ is a logical function. Let $x(t)=x_0(t)x_1(t)...x_{n-1}(t)$ denote the state of Fibonacci NLFSR (\ref{fnsr}). We can convert system (\ref{fnsr}) into the following form:
+\begin{equation}\label{fnsr1}
+x(t+1)=L_Fx(t),
+\end{equation}
+where $L_F\in \mathcal{L}_{2^n\times 2^n}$, $x(t)\in \Delta_{2^n}$.
+Clearly, the Fibonacci NLFSR is a special cases of Galois NLFSR.
+
+\begin{lemma}\label{reconstruct1}[\cite{Zhong2014A}]
+Assume that the truth table of feedback function $f$ in (\ref{fnsr}) is [$\zeta_1$, $\zeta_2$, ...,$\zeta_{2^n}$ ], and the algebraic representation of Fibonacci NLFSR (\ref{fnsr}) is (\ref{fnsr1}). Then $L_{F}$ satisfies
+\begin{equation}\label{b}
+L_F=\delta_{2^n}\left[
+    \begin{array}{cccccc}
+      q_1 & ... & q_{2^{n-1}} & q_{2^{n-1}+1} & ... & q_{2^n} \\
+    \end{array}
+  \right]
+\end{equation}
+where
+\begin{gather}\label{a}
+ q_i = 2i-\zeta_i , \\
+  q_{2^{n-1}+i} = 2i-\zeta_{2^{n-1}+i},
+\end{gather}
+for all $i=1,2,...,2^{n-1}$.
+\end{lemma}
+
+Let $\mathcal{F}_{2^n\times 2^n}$ denote the set of all $2^n\times 2^n$ logic matrix satisfying conditions (\ref{b}), (\ref{a}) and (12).
+
+Let $x_{n-1}(t+1)=x_{0}(t+n),~x_{n-1}(t)=x_{0}(t+n-1),~x_{n-2}(t)=x_0(t+n-2),~x_{n-3}(t)=x_0(t+n-3),~...,~x_1(t)=x_0(t+1)$, and substituting them into $x_{n-1}(t+1)=f(x_0(t),x_1(t),...,x_{n-1}(t))$ in system (\ref{fnsr}), one can obtain
+\begin{equation}
+x_{0}(t+n)=f(x_0(t),x_0(t+1),...,x_0(t+n-1)),
+\end{equation}
+which is called \textit{nonlinear recurrence} of order $n$ describing the output sequences of Fibonacci NLFSR.\par
+\begin{figure}
+\centering
+\includegraphics[width=3in]{ex.eps}
+\caption{State transition graph of $N_1$ in Example 1}
+\label{ex1}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=3in]{e13.eps}
+\caption{Isomorphic graphs in Example 2}
+\label{Isomorphic graphs}
+\end{figure}
+\begin{definition}%引用的
+An $n$-bit NLFSR is $uniform$ if the NLFSR has nonlinear recurrence of order $n$ describing the output sequence.
+\end{definition}
+\begin{remark}
+An arbitrary Fibonacci NLFSR is uniform.
+\end{remark}
+\begin{definition}
+Consider a NLFSR $N$ with directed state transition graph being $G_N$, and with its structure matrix being $L$. We define the state transition graph as follows:
+\begin{itemize}
+  \item the vertex set $V(G_N)$ is the set $\{(i_0,i_1,...,i_{n-1})\sim\delta^{i}_{2^n}|i_0,i_1,...,i_{n-1}\in \mathcal{D}\}$.
+  \item the directed edge set $E(G_N)$ is defined as follows: there is a directed edge from $v_i\sim\delta^{i}_{2^n}$ to $v_j\sim\delta^{j}_{2^n}$, if and only if $L\delta^{i}_{2^n}=\delta^{j}_{2^n}$, $v_i$ is called a $predecessor$ of $v_j$, while $v_j$ is called a $succesor$ of $v_i$.
+\end{itemize}
+\end{definition}
+
+For a NLFSR, the state which has two $predecessors$ is called a $branch$ $state$. The state without $predecessor$ is called $starting$ $state$.
+
+\begin{definition}
+A state $x_0\in \Delta_{2^n}$ is called a $equilibrium$ $state$ of system (\ref{gnsr2}) or (\ref{fnsr1}), if $L_Gx_0=x_0$ or $L_Fx_0=x_0$.
+\end{definition}
+
+\begin{example}
+Given an 3-bit NLFSR $N_1$ with the following equation:
+ \begin{eqnarray}
+ \left\{ \begin{aligned}
+&x_0(t+1)=x_1(t)\oplus x_0(t),\\
+&x_1(t+1)=x_2(t),\\
+&x_2(t+1)=x_2(t)\oplus x_1(t).
+\end{aligned} \right.
+\end{eqnarray}
+The state transition graph of NLFSR $N_1$ is shown in Fig. \ref{ex1}. $000$ and $100$ are equilibrium states.
+
+\end{example}
+
+For an arbitrary edge $e\in E(G)$, there are vertexes $u$ and $v$, such that $\psi_G(e)=uv$.
+
+\begin{definition}[\cite{Bondy1976Graph}]
+Two graphs $G$ and $H$ are $isomorphic$, written $G\cong H$, if there are bijections $\theta$: $V(G)\rightarrow V(H)$ and $\phi$: $E(G)\rightarrow E(H)$ such that $\psi_G(e)=uv$ if and only if $\psi_H(\phi(e))=\theta(u)\theta(v)$.
+\end{definition}
+\begin{example}
+In Fig. \ref{Isomorphic graphs}, the mapping $\theta$ and $\phi$ are defined by
+\begin{equation*}
+\theta :=\left(
+           \begin{array}{cccc}
+             a & b & c & d \\
+             w & z & y & x \\
+           \end{array}
+         \right),
+\phi :=\left(
+         \begin{array}{cccccc}
+           e_1 & e_2 & e_3 & e_4 & e_5 & e_6 \\
+           f_3 & f_4 & f_1 & f_6 & f_5 & f_2 \\
+         \end{array}
+       \right),
+\end{equation*}
+then $G\cong H$.
+\end{example}
+
+\begin{definition}%对0开头的状态和1开头的状态进行定义
+Let $S_0$ denote the set of states $\{(0,x_1,x_2,...,x_{n-1}\\)|x_1,x_2,...,x_{n-1}\in \mathcal{D}\}$, and let $S_1$ denote the set of states $\{(1,x_1,x_2,...,x_{n-1})|x_1,x_2,...,x_{n-1}\in \mathcal{D}\}$.
+\end{definition}
+
+
+\begin{definition}
+Two NLFSRs are $equivalent$ if the sets of their output sequences are the same, and two equivalent NLFSRs are called \textit{absolutely equivalent} if their state transition graphs are isomorphic.
+\end{definition}
+In the following, only the absolutely equivalence of NLFSR will be considered. In order to avoid ambiguity, an NLFSR is a arbitrary type of NLFSR without special declarations.
+
+
+\section{Main results}
+In this section, some interesting properties of uniform NLFSR are firstly obtained. Then, two algorithms are provided to achieve the transformation between Galois NLFSR and Fibonacci NLFSR.
+
+\begin{property}[\cite{zhiqiang2013transformation}]\label{p1}
+Given an $n$-bit uniform NLFSR $N_1$. If the nonlinear recurrence of order $n$ describing the output sequence of $N_1$ is
+\begin{equation}\label{n-r}
+x_{0}(t+n)=f(x_0(t),x_0(t+1),...,x_0(t+n-1)).
+\end{equation}
+One can replace $x_0(t+i)$ with $x_i(t)$, $(0\leq i\leq n-1)$ in (\ref{n-r}), then we can obtain
+ \begin{eqnarray*}
+ \left\{ \begin{aligned}
+&x_0(t+1)=x_1(t),\\
+&\vdots \\
+&x_{n-2}(t+1)=x_{n-1}(t),\\
+&x_{n-1}(t+1)=f(x_0(t),x_1(t),...,x_{n-1}(t)),
+\end{aligned} \right.
+\end{eqnarray*}
+which is a Fibonacci NLFSR.
+\end{property}
+
+\begin{lemma}[\cite{Dubrova2009A}]\label{nonlinear recurrence1}
+ If two $n$-bit NLFSRs have same nonlinear recurrence of order $n$, then these two $n$-bit NLFSRs are equivalent to each other.
+\end{lemma}
+
+\begin{lemma}[\cite{Dubrova2010Finding}]\label{initial state}
+ If two $n$-bit NLFSRs (NLFSR $N_1$ and NLFSR $N_2$) have same nonlinear recurrence of order $n$, then there exists a bijection $\Phi$ between the initial states of NLFSR $N_1$ and NLFSR $N_2$, such that the initial states $\delta^i_{2^n}$ in $N_1$ and $\Phi(\delta^i_{2^n})$ in $N_2$ have same output sequence.
+\end{lemma}
+
+\begin{theorem}\label{nonlinear recurrence}
+If two $n$-bit uniform NLFSRs (NLFSR $N_1$ and NLFSR $N_2$) have same nonlinear recurrence of order $n$, then these two $n$-bit NLFSRs are absolutely equivalent.
+\end{theorem}
+\begin{proof}
+From Lemma \ref{nonlinear recurrence1}, we can know that these two $n$-bit NLFSRs are equivalent. Hence, in the following, we only need to prove that the state transition graphs of these two NLFSRs are isomorphic.
+
+From Lemma \ref{initial state}, one can conclude that there is a bijection $\Phi$ between these initial states of two NLFSRs, such that the initial states $\delta^i_{2^n}$ in NLFSR $N_1$ and $\Phi(\delta^i_{2^n})$ in NLFSR $N_2$ have the same output sequence. Now, we only need to prove that
+\begin{equation*}
+\Phi(L_1\delta^i_{2^n})=L_2\Phi(\delta^i_{2^n}),
+\end{equation*}
+where $L_1$ and $L_2$ are structure matrices of NLFSR $N_1$ and NLFSR $N_2$ respectively.
+
+Let $l_i=i_1,i_2,i_3,...$ denote the output sequence of initial state $\delta^i_{2^n}$.
+\begin{itemize}
+  \item For NLFSR $N_1$, if $L_1\delta^i_{2^n}=\delta^j_{2^n}$, then $l_j$ is the sub-sequence of $l_i$ and $i_2=j_1,i_3=j_2,...$. If  $\Phi(\delta^i_{2^n})=\delta^p_{2^n}$, then $\delta^p_{2^n}$ is initial state of NLFSR $N_2$, then one can obtain that $l_i$ is equal to $l_p$ (i.e. $i_1=p_1,i_2=p_2,...$).
+  \item  For NLFSR $N_2$, if $L_2\Phi(\delta^i_{2^n})=L_2\delta^p_{2^n}=\delta^q_{2^n}$, then $l_q$ is the sub-sequence of $l_p$, and $p_2=q_1,p_3=q_2,...$.
+  \item Hence, we can conclude that output sequence $l_j$ is equal to $l_q$, which means that $\Phi\delta^j_{2^n}=\delta^q_{2^n}$ (i.e. $\Phi(L_1\delta^i_{2^n})=L_2\Phi(\delta^i_{2^n})$). So the state transition graphs of NLFSR $N_1$ and NLFSR $N_2$ are isomorphic.
+\end{itemize}
+
+\end{proof}
+
+From Property \ref{p1}, Lemma \ref{initial state} and Theorem \ref{nonlinear recurrence}, we can derive the following Corollary.
+\begin{corollary}\label{uniform-equivalent}
+ A uniform Galois NLFSR can be transformed to an absolutely equivalent Fibonacci NLFSR.
+\end{corollary}
+
+%引用，关于分支点跟起始点的个数是一样的。
+\begin{lemma}[\cite{dawei2014novel}]\label{m3}
+ The number of branch states of a Fibonacci NLFSR is equal to the number of starting states.
+\end{lemma}
+
+From definition of uniform NLFSR and Corollary \ref{uniform-equivalent}, we can derive following properties of uniform NLFSR.
+
+\begin{property}
+The number of branch states of an uniform NLFSR is equal to the number of starting states.
+\end{property}
+
+\begin{property}
+ Every state of an uniform NLFSR has at most two predecessors, and $|col(L_G)|\geq 2^{n-1}$.
+\end{property}
+
+\begin{proof}
+If every state $\delta^i_{2^n}\in col(L_G)$ in uniform NLFSR has two predecessors, then there are $\delta^{i_1}_{2^n}$ and $\delta^{i_2}_{2^n}$, such that:
+\begin{equation*}
+L\delta^{i_1}_{2^n}=L\delta^{i_2}_{2^n}=\delta^i_{2^n}.
+\end{equation*}
+Then $col_{i_1}(L_G)$ and $col_{i_2}(L_G)$ are both equal to $\delta^i_{2^n}$. Hence, we have $|col(L_G)|\geq 2^{n-1}$.
+\end{proof}
+
+\begin{property}\label{GF}
+ For an arbitrary uniform NLFSR $N_1$, there are at most two equilibrium states of NLFSR $N_1$. If the NLFSR $N_1$ has two equilibrium states $e_1,e_2$, then $e_1\in S_0$ and $e_2\in S_1$.
+\end{property}
+\begin{proof}
+From Theorem \ref{nonlinear recurrence} and Corollary \ref{uniform-equivalent}, $N_1$ can be transformed to an absolutely equivalent Fibonacci NLFSR $N_2$. Hence the state transition graph $G_{N_1}\cong G_{N_2}$, and the set of output sequences of NLFSR $N_1$ and NLFSR $N_2$ are equal. Since every state of NLFSR $N_2$ has two predecessors at most, NLFSR $N_1$ must have the same property (i.e. for every state of NLFSR $N_1$ has at most two predecessors).
+
+For NLFSR $N_2$, the equilibrium states can only be $000...$ or $111...$. The output sequences of initial states $000...$ and $111...$ are $000...$ and $111...$ respectively. Considering the fact that the output sequences of equilibrium states of two absolutely NLFSRs are equal, we can conclude that if NLFSR $N_1$ have two equilibrium states $e_1,e_2$, then $e_1\in S_0$ and $e_2\in S_1$.
+\end{proof}
+
+\begin{theorem}\label{m1}%只是必要条件
+Given an $n$-bit NLFSR $N_1$ with its structure matrix being $L_1$. Then there exists another different $n$-bit Galois NLFSR $N_2$ with structure matrix being $L_2$, such that NLFSR $N_1$ and NLFSR $N_2$ are absolutely equivalent.
+\end{theorem}
+\begin{proof}
+First, we need to construct a bijection $\Phi:\Delta_{2^n}\rightarrow \Delta_{2^n}$, which is a one-to-one mapping from states of NLFSR $N_1$ to that of NLFSR $N_2$.
+
+
+The constructing method of the bijection $\Phi$ named $CM$ is given as follows:
+\begin{itemize}
+  \item \textbf{\textit{Initialization}}  Set $i:=0$, set $Re:=\Delta_{2^n}$, state transition graph of $N_2$ is $G_{N_2}:=(V,E),V=\emptyset , E=\emptyset$.
+  \item \textbf{\textit{Recursive step}}  Set $i=i+1$, $\delta^i_{2^n}\sim (i_0,i_1,...i_{n-1}) $ of $N_1$.\\
+if $i_0=0$, then one can set $(0,j_1,...j_{n-1})\sim \delta^j_{2^n}\in Re$.\\
+else one can set $(1,j_1,...j_{n-1})\sim \delta^j_{2^n}\in Re$.\\
+Do $V=V\cup\delta^j_{2^n}$, and set $\Phi(\delta^i_{2^n})=\delta^j_{2^n}$, $Re=Re \setminus \delta^j_{2^n}$.\\
+$E=\{\Phi(u)\Phi(v)|u,v\in V(G_{N_1}),uv=e\in E(G_{N_1})\}$, and the matrix $L_2$ satisfies the following property:\\
+$\{col_i(L_2)=\delta^j_{2^n}|u=\delta^i_{2^n}\sim(i_0,i_1,...,i_{n-1}),v=\delta^j_{2^n}\sim(j_0,j_1,...,j_{n-1}),\Phi^{-1}(u)\Phi^{-1}(v)\in E(G_{N_1})\}.$
+\end{itemize}
+
+From the process of $CM$, we can easily conclude that NLFSR $N_2$ and NLFSR $N_1$ are absolutely equivalent.
+\end{proof}
+
+From the process of constructing method $CM$, one can also derive the following result.
+\begin{corollary}\label{m2}
+If an arbitrary type of NLFSR $N_1$ is equivalent to a Galois NLFSR $N_2$ which is constructed by $CM$, then the states in sets $S_0$ of NLFSR $N_1$ and NLFSR $N_2$ are one-to-one mapping, and further the states in sets $S_1$ of NLFSR $N_1$ and NLFSR $N_2$ are also one-to-one mapping.
+\end{corollary}
+
+
+\begin{theorem}\label{transform-from-G-F}
+ Given an arbitrary $n$-bit uniform Galois NLFSR $GN$ with its state transition matrix being $L_G$, there exist a matrix $L_F\in \mathcal{F}_{2^n\times 2^n}$ and a permutation matrix $M_{\Phi}=[M_{\Phi_1},M_{\Phi_2}]\in \mathcal{L}_{2^n\times 2^n}$, $M_{\Phi_1}\in \mathcal{L}_{2^n\times 2^{n-1}}$, $M_{\Phi_2}\in \mathcal{L}_{2^n\times 2^{n-1}}$, $col(M_{\Phi_1})\subseteq\{\delta^1_{2^n},\delta^2_{2^n},...,\delta^{2^{n-1}}_{2^n}\}$, $col(M_{\Phi_2})\subseteq\{\delta^{2^{n-1}+1}_{2^n},\delta^{2^{n-1}+2}_{2^n},...,\delta^{2^{n}}_{2^n}\})$ such that
+\begin{equation}
+L_G=M^{-1}_{\Phi}L_FM_{\Phi}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+From Theorem \ref{uniform-equivalent} and Corollary \ref{uniform-equivalent}, the NLFSR $GN$ is absolutely equivalent to a Fibonacci NLFSR $FN$ with structure matrix being $L_F$. Then there exists a bijection $\Phi$ between the initial states of NLFSR $GN$ and NLFSR $FN$. Hence, for any state $\delta^i_{2^n}$ of NLFSR $GN$, we have
+\begin{equation}
+M_{\Phi}L_G\delta^i_{2^n}=L_FM_{\Phi}\delta^i_{2^n},
+\end{equation}
+where $M_{\Phi}$ is the structure matrix of bijection $\Phi$, and $M_{\Phi}$ is a permutation matrix. To ensure that the output sequences of $\delta^i_{2^n}$ and $M_{\Phi}\delta^i_{2^n}$ are equal, we need the implementation of that $\delta^i_{2^n}\sim (0,i_1,...i_{n-1})$,
+ which implies that $M_{\Phi}\delta^i_{2^n}=\delta^j_{2^n}\sim (0,i_1,...i_{n-1})$. Hence $col(M_{\Phi_1})\subseteq\{\delta^1_{2^n},\delta^2_{2^n},...,\delta^{2^{n-1}}_{2^n}\}$, $col(M_{\Phi_2})\subseteq\{\delta^{2^{n-1}+1}_{2^n},\delta^{2^{n-1}+2}_{2^n},...,\delta^{2^{n}}_{2^n}\})$.
+
+On the contrary, if $M_{\Phi}L_G\delta^i_{2^n}\neq L_FM_{\Phi}\delta^i_{2^n}$, we know that the output sequences of initial state $M_{\Phi}L_G\delta^i_{2^n}$ in NLFSR $GN$ and initial state $L_FM_{\Phi}\delta^i_{2^n}$ in NLFSR $FN$ are not equal, which contradicts with Theorem \ref{nonlinear recurrence}. Hence, proof of Theorem \ref{transform-from-G-F} is completed.
+\end{proof}
+Following Theorem \ref{m1} and Theorem \ref{transform-from-G-F}, we can derive the following theorem to describe the relationship between structure matrices of Fibonacci NLFSR and Galois NLFSR.
+
+\begin{theorem}\label{ftog}
+An arbitrary Fibonacci NLFSR $FN$ can be transformed to an absolutely equivalent Galois NLFSR $GN$ by using $CM$, and the structure matrix $M_{\Psi}$ of bijection $\Psi$ between the initial states in NLFSR $FN$ and NLFSR $GN$ satisfies that $M_{\Psi}=[M_{\Psi_1},M_{\Psi_2}]$, $M_{\Psi_1}\in \mathcal{L}_{2^n\times 2^{n-1}}$, $M_{\Psi_2}\in \mathcal{L}_{2^n\times 2^{n-1}}$, $col(M_{\Psi_1})\subseteq\{\delta^1_{2^n},\delta^2_{2^n},...,\delta^{2^{n-1}}_{2^n}\}$, $col(M_{\Psi_2})\subseteq\{\delta^{2^{n-1}+1}_{2^n},\delta^{2^{n-1}+2}_{2^n},...,\delta^{2^{n}}_{2^n}\})$.
+ The structure matrices $L_F$ of NLFSR $GN$ and $L_G$ of NLFSR $FN$ satisfy
+ \begin{equation}
+ L_F=M^{-1}_{\Psi}L_G M_{\Psi}.
+ \end{equation}
+\end{theorem}
+
+In the following, we provide an algorithm to achieve the transformation from a uniform Galois NLFSR to an absolutely equivalent Fibonacci NLFSR. Suppose that the structure matrix of Galois NLFSR is $L_G=\delta_{2^n}[p_1~ p_2~ ...~ p_{2^n}]$. For any initial state $\delta^i_{2^n}$, it has an output sequence $l_i$. In this algorithm, the first $n$ bits of $l_i$ are written as $(y_1,y_2,...,y_n)\sim\delta^{j_i}_{2^n}$. Now we provide an algorithm to calculate the structure matrix $M_{\Phi}$ of transform function $\Phi$ and the structure matrix of NLFSR $N_2$. In following algorithm, at first, we judge whether the Galois NLFSR is a uniform Galois NLFSR. If the Galois NLFSR is a uniform Galois NLFSR, the Galois NLFSR can be transformed into an absolutely equivalent Fibonacci NLFSR. Otherwise the algorithm is ended.
+
+\begin{algorithm}\label{algorithm1}
+\caption{Calculation of matrix $L_F$.}
+\begin{algorithmic}
+\STATE  $initial~set~\Delta=\{1,2,...,2^n\}$
+\FOR { $i=1$ to $2^n$}
+\IF {$j_i\in \Delta$}
+\STATE $\Phi(i)=j_i$
+\STATE $col_i(M_{\Phi})=\delta^{j_i}_{2^n}$
+\STATE $\Delta\backslash j_i$
+\ELSE
+\STATE \textbf{break}
+\ENDIF
+\ENDFOR
+\STATE $M^{-1}_{\Phi}=M^{T}_{\Phi}$
+\STATE $L_F=M_{\Phi}L_G M^{-1}_{\Phi}$
+\end{algorithmic}
+\end{algorithm}
+\begin{remark}
+According to Algorithm 1, one can obtain the structure matrix $M_{\Phi}$, and $M_{\Phi}=[M_{\Phi_1}~ M_{\Phi_2}]\in \emph{L}_{2^n\times 2^n}$, $M_{\Phi_1}\in \emph{L}_{2^{n}\times 2^{n-1}}$, $M_{\Phi_2}\in \emph{L}_{2^{n}\times 2^{n-1}}$, $col(M_{\Phi_1})\subseteq\{\delta^{1}_{2^n},\delta^{2}_{2^n},...,\delta^{2^{n-1}}_{2^n}\}$, $col(M_{\Phi_2})\subseteq\{\delta^{2^{n-1}+1}_{2^n},\delta^{2^{n-1}+2}_{2^n},...,\delta^{2^{n}}_{2^n}\}$.
+\end{remark}
+
+The transformation from a Fibonacci NLFSR to an absolutely equivalent Galois NLFSR can be achieved according to the following Algorithm 2. In the transformation from a Fibonacci NLFSR to an equivalent Galois NLFSR, one only need to construct a bijection $\Psi$ from Galois NLFSR to Fibonacci NLFSR. The structure matrix of bijection $\Psi$ is denoted by $M_{\Psi}$. For every initial state $\delta^i_{2^n}$ in Fibonacci NLFSR, if $\delta^i_{2^n}\in S_0$ $(\delta^i_{2^n}\in S_1)$, then we can choose an $\delta^{j_i}_{2^n}\in S_0$ $(\delta^{j_i}_{2^n}\in S_1)$, such that $\Psi(\delta^i_{2^n})=\delta^{j_i}_{2^n}\in S_0$ $(\Psi(\delta^i_{2^n})=\delta^{j_i}_{2^n}\in S_1)$. The algorithm is presented as follows.
+
+\begin{algorithm}\label{algorithm2}
+\caption{Calculation of matrix $L_F$.}
+\begin{algorithmic}
+\STATE $\Omega_1=\{1,2,...,2^{n-1}\},\Omega_2=\{2^{n-1}+1,2^{n-1}+2,...,2^{n}\}$
+\FOR { $i=1$ to $2^{n-1}$}
+\STATE $\Psi(i)=j_i\in\Omega_1$
+\STATE $\Omega_1=\Omega_1\setminus j_i$
+\STATE $col_i(M_{\Psi})=\delta^{j_i}_{2^n}$
+\ENDFOR
+\FOR { $i=2^{n-1}$ to $2^{n}$}
+\STATE $\Psi(i)=j_i\in\Omega_2$
+\STATE $\Omega_2=\Omega_2\setminus j_i$
+\STATE $col_i(M_{\Psi})=\delta^{j_i}_{2^n}$
+\ENDFOR
+\STATE $M^{-1}_{\Psi}=M^{T}_{\Psi}$
+\STATE $L_G=M_{\Psi}L_F M^{-1}_{\Psi}$
+\end{algorithmic}
+\end{algorithm}
+
+\section{Examples}
+In this section, we give two examples to illustrate the
+effectiveness of the algorithms and our theoretical results obtained in this paper.
+\begin{example}
+Consider an $4$-bit Galois NLFSR with following equation:
+ \begin{eqnarray}\label{Galois}
+ \left\{ \begin{aligned}
+&x_0(t+1)=x_1(t)\oplus x_0(t),\\
+&x_1(t+1)=x_2(t),\\
+&x_{2}(t+1)=x_{3}(t),\\
+&x_{3}(t+1)=x_0(t)\oplus x_2(t)x_{3}(t)).
+\end{aligned} \right.
+\end{eqnarray}
+By simple computations, we can obtain its structure matrix $L_G$:
+\begin{equation*}
+L_G=\delta_{16}[10~ 11~ 13~ 15~ 2~ 3~ 5~ 7~ 1~ 4~ 6~ 8~ 9~ 12~ 14~ 16].
+\end{equation*}
+Also we can easily obtain the state transition graph as shown in Fig. \ref{ex2}
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{ex1.eps}
+\caption{State transition graph of Galois NLFSR in Example 3}
+\label{ex2}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=3.5in]{ex11.eps}
+\caption{State transition graph of Fibonacci NLFSR in Example 3}
+\label{ex22}
+\end{figure}
+By using Algorithm 1, we can obtain the bijection $\Phi$ and the structure matrix of $\Phi$ as follows.
+\begin{equation*}
+M_{\Phi}=\delta_{16}[6~ 5~ 7~ 8~ 3~ 4~ 2~ 1~ 11~ 12~ 10~ 9~ 14~ 13~ 15~ 16]
+\end{equation*}
+Also we can obtain the structure matrix $L_F$ of the equivalent Fibonacci NLFSR:
+\begin{equation*}
+L_{F}=\delta_{16}[2~ 3~ 5~ 7~ 10~ 12~ 14~ 15~ 1~ 4~ 10~ 6~ 8~ 9~ 13~ 16]
+\end{equation*}
+From the state transition graph of the Galois NLFSR, we know that the Galois NLFSR is a uniform Galois NLFSR.
+
+By using Lemma \ref{reconstruct1}, the absolutely equivalent Fibonacci NLFSR is :
+ \begin{eqnarray}\label{Fibonacci}
+ \left\{ \begin{aligned}
+&y_0(t+1)=y_1(t),\\
+&y_1(t+1)=y_2(t),\\
+&y_{2}(t+1)=y_{3}(t),\\
+&y_{3}(t+1)=y_0(t)\oplus y_2(t)\oplus y_3(t)\oplus y_1(t)y_2(t)\oplus \\
+& \qquad \qquad \quad  y_1(t)y_3(t)\oplus y_2(t)y_3(t).
+\end{aligned} \right.
+\end{eqnarray}
+The state transition graph of NLFSR (\ref{Fibonacci}) is shown in Fig.\ref{ex22}. This example verifies Theorem \ref{transform-from-G-F} and Algorithm 1. The Fibonacci NLFSR (\ref{Fibonacci}) is obtained by using Algorithm 1 are absolutely equivalent to Galois NLFSR (\ref{Galois}). From the state transition graph of Galois NLFSR (\ref{Galois}) and Fibonacci NLFSR (\ref{Fibonacci}), we can know that the set of output sequences of NLFSR (\ref{Fibonacci}) and NLFSR (\ref{Galois}) are the same.
+\end{example}
+
+\begin{example}
+Consider an 3-bit Fibonacci NLFSR
+ \begin{eqnarray}\label{Fibonacci1}
+ \left\{ \begin{aligned}
+&x_0(t+1)=x_1(t)\\
+&x_1(t+1)=x_2(t),\\
+&x_{2}(t+1)=x_0(t)\oplus x_1(t)x_2(t).
+\end{aligned} \right.
+\end{eqnarray}
+By simple computations, we can obtain the structure matrix of (\ref{Fibonacci1}) as
+$L_F=\delta_{8}[2~ 3~ 5~ 7~ 1~ 4~ 6~ 8]$. Then we can obtain the state transition graph of Fibonacci NLFSR (\ref{Fibonacci1}) shown in Fig.\ref{ex3}.
+\begin{figure}
+\centering
+\includegraphics[width=3in]{ex2.eps}
+\caption{State transition graph of Fibonacci NLFSR in Example 4}
+\label{ex3}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=3in]{ex22.eps}
+\caption{State transition graph of Galois NLFSR in Example 4}
+\label{ex32}
+\end{figure}
+By using Algorithm 2, the structure matrix of bijection $\Psi$ from Fibonacci NLFSR to Galois NLFSR is
+$M_{\Psi}=\delta_{8}[2~ 1~ 4~ 3~ 6~ 5~ 8~ 7]$.
+Let $L_G=M_{\Psi}L_FM^{-1}_{\Psi}$, so the structure matrix of Galois NLFSR is $L_G=\delta_{8}[4~ 1~ 8~ 6~ 3~ 2~ 7~ 5]$.
+
+
+By Lemma \ref{reconstruct}, we can conclude that the equation of Gaolis NLFSR is given as follows:
+\begin{eqnarray}
+ \left\{ \begin{aligned}
+&y_0(t+1)=y_1(t)\neg y_2(t)\oplus y_1(t)y_2(t)\\
+&y_1(t+1)=\neg y_2(t),\\
+&y_{2}(t+1)=y_0(t)\oplus\neg y_1(t)\oplus y_1(t)y_2(t).
+\end{aligned} \right.
+\end{eqnarray}
+The state transition graph of Galois NLFSR is shown in Fig. \ref{ex32}.
+
+One can know that the set of the output sequences of Fibonacci NLFSR and Galois NLFSR are same. This example verifies that Algorithm 2 is efficient to achieve the transformation from Fibonacci NLFSR to Galois NLFSR.
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{CONCLUSION}
+
+This paper investigated the transformation between Fibonacci NLFSR and Galois NLFSR using STP of matrix. First, we treated the Fibonacci NLFSR and Galois NLFSR as BNs. Then some interesting properties of uniform NLFSR were proposed. We proved that the uniform Galois NLFSR can be transformed to an absolutely equivalent Fibonacci NLFSR, and arbitrary Fibonacci NLFSR can be transformed to an absolutely equivalent Galois NLFSR. At last, we provided two algorithms to achieve the transformation between the Galois NLFSR and Fibonacci NLFSR. In this paper, we expanded the range of Galois NLFSR that can be transformed to Fibonacci NLFSR. By using the STP of matrices, the transformation between the Galois NLFSR and Fibonacci NLFSR are much easier than the algebraic method in (\cite{Dubrova2009A}, \cite{zhiqiang2013transformation}).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{xx}
+
+\harvarditem[B. M. Gammel {\em et al.}]{B. M. Gammel {\em et al.}}{2006}{gammel2006nlfsr}
+B. M. Gammel, R. Gottfert, and O. Kniffler (2006). `An {NLFSR}-based stream
+cipher'. {\em IEEE International Symposium on Circuits and Systems} ,~4--pp.
+
+\harvarditem[B. Gammel {\em et al.}]{B. Gammel {\em et al.}}{2007}{gammel2007achterbahn}
+B. Gammel, R. Gottfert, and O. Kniffler (2007). `Achterbahn-128/80: Design and analysis'. {\em Achterbahn-128/80: Design ¨
+and analysis},~157--165.
+
+\harvarditem[C. Li {\em et al.}]{C. Li {\em et al.}}{2014}{Li2014The}
+C. Li, X. Zeng, T. Helleseth, C. Li, and L. Hu (2014). `The properties of a class of linear {FSRs} and their applications to the construction of nonlinear {FSRs}'. {\em
+  IEEE Transactions on Information Theory} {\bf 60}(60),~3052--3061.
+
+\harvarditem[D. Cheng {\em et al.}]{D. Cheng {\em et al.}}{2011}{Cheng2011Analysis}
+D. Cheng, H. Qi, and Z. Li (2011). `Analysis and Control of Boolean Networks'. {\em
+  Springer London}.
+
+\harvarditem[D. Zhao{\em et al.}]{D. Zhao {\em et al.}}{2014}{dawei2014novel}
+D. Zhao, H. Peng, L. Li, S. Hui, and Y. Yang (2014). `Novel way to research nonlinear feedback shift register'. {\em
+  Science China Information Sciences} {\bf 57}(9),~92114--092114.
+
+\harvarditem[D. Cheng {\em et al.}]{D. Cheng {\em et al.}}{2009}{cheng2009controllability}
+D. Cheng and H. Qi (2009). `Controllability and observability of {Boolean} control networks'. {\em
+  Automatica} {\bf 45}(7),~1659--1667.
+\harvarditem[D. Cheng {\em et al.}]{D. Cheng {\em et al.}}{2011}{cheng2011stability}
+D. Cheng, H. Qi, Z. Li, and J. B. Liu (2011). `Stability and stabilization of {Boolean} networks'. {\em
+  International Journal of Robust and Nonlinear
+Control} {\bf 21}(2),~134--156.
+
+\harvarditem[Laschov and Margaliot]{Laschov and Margaliot}{2012}{laschov2012controllability}
+D. Laschov and M. Margaliot (2012). `Controllability of {Boolean} control
+networks via the perron{-}frobenius theory'. {\em
+  Automatica} {\bf 48}(6),~1218--1223.
+
+\harvarditem[E. Dubrova]{E. Dubrova}{2010}{Dubrova2010Finding}
+E. Dubrova. `Finding matching initial states for equivalent {NLFSRs} in the {Fibonacci} and the {Galois} configurations'. {\em IEEE Transactions on Information Theory} {\bf 56}(6),~2961--2966.
+
+\harvarditem[E. Dubrova]{E. Dubrova}{2009}{Dubrova2009A}
+E. Dubrova. (2009) `A Transformation From the {Fibonacci} to the {Galois} {NLFSRs}'. {\em
+  IEEE Transactions on Information Theory} {\bf 55}(11),~5263--5271.
+
+\harvarditem[F. Li {\em et al.}]{F. Li {\em et al.}}{2011}{li2011controllability}
+F. Li and J. Sun (2011). `Controllability of {Boolean} control networks with time delays in states'. {\em
+  Automatica} {\bf 47}(3),~603--607.
+
+\harvarditem[F. Li {\em et al.}]{F. Li {\em et al.}}{2017}{li2017stabilization}
+F. Li, H. Li, L. Xie and Z. Qi (2017). `On stabilization and set stabilization of multivalued logical systems'. {\em
+  Automatica} {\bf 80},~41--47.
+
+\harvarditem[Goresky and Klapper]{Goresky and Klapper}{2012}{goresky2012algebraic}
+M. Goresky and A. Klapper (2012). `Algebraic shift register sequences'. {\em
+  Cambridge University Press}.
+
+\harvarditem[Goresky and Klapper]{Goresky and Klapper}{2006}{goresky2006pseudonoise}
+M. Goresky and A. Klapper (2006). `Pseudonoise sequences based on algebraic feedback shift registers'. {\em
+  IEEE Transactions on Information Theory} {\bf 52}(4),~1649--1662.
+
+\harvarditem[H. Li {\em et al.}]{H. Li {\em et al.}}{2015}{li2015output}
+H. Li, Y. Wang, and L. Xie (2015). `Output tracking control of {Boolean} control networks via state feedback: Constant reference signal case'. {\em
+  Automatica} {\bf 59},~54--59.
+
+\harvarditem[H. Li {\em et al.}]{H. Li {\em et al.}}{2015}{Li2015Controllability}
+H. Li and Y. Wang (2015). `Controllability analysis and control design for switched {Boolean} networks with state and input constraints'. {\em
+  Siam Journal on Control \& Optimization} {\bf 53}(5),~2955--2979.
+
+\harvarditem[J. A. Bondy {\em et al.}]{J. A. Bondy {\em et al.}}{1976}{Bondy1976Graph}
+J. A. Bondy and U. S. R. Murty. (1976) `Graph theory with applications'. {\em
+  Macmillan} ,~237--238.
+
+\harvarditem[J. A. Bondy {\em et al.}]{J. A. Bondy {\em et al.}}{1976}{Bondy1976Graph}
+J. A. Bondy and U. S. R. Murty. (1976) `Graph theory with applications'. {\em
+  Macmillan} ,~237--238.
+
+\harvarditem[J. Massey]{J. Massey}{1969}{massey1969shift}
+J. Massey (1969). `Shift-register synthesis and {BCH} decoding'. {\em
+  IEEE Transactions on Information Theory} {\bf 15}(1),~122--127.
+
+\harvarditem[J. Lu {\em et al.}]{J. Lu {\em et al.}}{2016}{lu2016controllability}
+J. Lu, J. Zhong, D. W. Ho, Y. Tang, and J. Cao (2016). `On Controllability of Delayed {Boolean} Control Networks'. {\em
+  SIAM Journal on Control and
+Optimization} {\bf 54}(2),~475--494.
+
+\harvarditem[J. Lu {\em et al.}]{J. Lu {\em et al.}}{2016}{lu2016pinning}
+J. Lu, J. Zhong, C. Huang, and J. Cao (2016). `On pinning controllability of {Boolean} control networks'. {\em
+  IEEE Transactions on Automatic Control} {\bf 61}(6),~1658--1663.
+
+\harvarditem[J. Zhong {\em et al.}]{J. Zhong {\em et al.}}{2014}{zhong2014synchronization}
+J. Zhong, J. Lu, Y. Liu, and J. Cao (2014). `Synchronization in an array of output-coupled {Boolean} networks with time delay'. {\em
+  IEEE Transactions on Neural Networks and Learning Systems} {\bf 25}(12),~2288--2294.
+
+\harvarditem[J. Zhong {\em et al.}]{J. Zhong {\em et al.}}{2014}{Zhong2014A}
+J. Zhong and D. Lin (2014). `A new linearization method for nonlinear feedback shift registers'. {\em
+  Journal of Computer System Sciences} {\bf 81}(4),~783--796.
+
+\harvarditem[J. Zhong {\em et al.}]{J. Zhong {\em et al.}}{2014}{Zhong2014Stability}
+J. Zhong and D. Lin (2014). `A new linearization method for nonlinear feedback shift registers'. {\em
+  IEEE International Conference on Information and Automation}.
+
+\harvarditem[Meier and Staffelbach]{Meier and Staffelbach}{1989}{meier1989fast}
+J. Massey and O. Staffelbach (1989). `Fast correlation attacks on certain stream ciphers'. {\em
+  Journal of Cryptology} {\bf 1}(3),~159--176.
+
+\harvarditem[K. Chen {\em et al.}]{K. Chen {\em et al.}}{2007}{chen2004dragon}
+K. Chen, M. Henricksen, W. Millan, J. Fuller, L. Simpson, E. Dawson,
+H. Lee, and S. Moon (2004). `Dragon: A fast word based stream cipher'. {\em International Conference on Information Security and Cryptology},~33--50.
+
+
+\harvarditem[Li and Xie]{Li and Xie}{2016}{li2016robust}
+H. Li, Y. Wang and L. Xie (2016). `On robust control invariance of Boolean control networks'. {\em
+  Automatica} {\bf 68},~392--396.
+
+
+
+\harvarditem[M. Hell {\em et al.}]{M. Hell {\em et al.}}{2007}{hell2007grain}
+M. Hell, T. Johansson, and W. Meier (2007). `Grain: a stream cipher for constrained environments'. {\em
+  International Journal of Wireless and Mobile
+Computing} {\bf 2}(1),~86--93.
+
+\harvarditem[P. Guo {\em et al.}]{P. Guo {\em et al.}}{2013}{guo2013semi}
+P. Guo, Y. Wang, and H. Li (2013). `A semi-tensor product approach to finding {Nash} equilibria for static games'. {\em
+  Control Conference (CCC), 2013
+32nd Chinese},~107--112.
+
+\harvarditem[S. W. Golomb {\em et al.}]{S. W. Golomb {\em et al.}}{1982}{golomb1982shift}
+S. W. Golomb {\em et al.} (1982) `Shift register sequences'. {\em
+  Aegean Park Press}.
+
+\harvarditem[Y. Liu {\em et al.}]{Y. Liu {\em et al.}}{2016}{Liu2016Sampled}
+Y. Liu, J. Cao, L. Sun, and J. Lu (2016). `Sampled-data state feedback stabilization of {Boolean} control networks'. {\em
+  Neural Computation} {\bf 28}(4),~778.
+
+\harvarditem[Y. Liu {\em et al.}]{Y. Liu {\em et al.}}{2014}{liu2014controllability}
+Y. Liu, H. Chen, and B. Wu (2014). `Controllability of {Boolean} control networks with impulsive effects and forbidden states'. {\em
+  Mathematical Methods in the Applied Sciences} {\bf 37}(1),~1--9.
+
+\harvarditem[Zhong {\em et al.}]{Zhong {\em et
+  al.}}{2016}{Zhong2016Driven}
+Zhong, J. and D.~Lin  (2016). `Driven Stability of Nonlinear Feedback Shift Registers With Inputs'. {\em
+  IEEE Transactions on Communications} {\bf 64}(6),~2274--2284.
+
+\harvarditem[Z. Lin]{Z. Lin}{2013}{zhiqiang2013transformation}
+Z. Lin. (2013) `The transformation from the {Galois} {NLFSR} to the {Fibonacci} configuration'. {\em
+  Emerging Intelligent Data and Web Technologies (EIDWT), 2013 Fourth International Conference on} ,~335--339.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{thebibliography}
+
+
+
+%\end{thebibliography}
+
+
+
+%\bibliographystyle{ieeetr}
+%\bibliography{F:/mypaper/reference}
+
+
+
+\end{document}

@@ -1,0 +1,91 @@
+\begin{thebibliography}{10}
+
+\bibitem{Fox1993Review}
+Fox and F.~Ronald, ``Review of stuart kauffman, the origins of order:
+  Self-organization and selection in evolution,'' {\em Biophysical Journal},
+  vol.~65, no.~6, p.~2698¨C2699, 1993.
+
+\bibitem{Huang2000Shape}
+S.~Huang and D.~E. Ingber, ``Shape-dependent control of cell growth,
+  differentiation, and apoptosis: switching between attractors in cell
+  regulatory networks.,'' {\em Experimental Cell Research}, vol.~261, no.~1,
+  pp.~91--103, 2000.
+
+\bibitem{Kauffman1989The}
+S.~A. Kauffman and E.~D. Weinberger, ``The nk model of rugged fitness
+  landscapes and its application to maturation of the immune response.,'' {\em
+  Journal of Theoretical Biology}, vol.~141, no.~2, pp.~211--245, 1989.
+
+\bibitem{Stefan2011Robustness}
+S.~Bornholdt and K.~Sneppen, ``Robustness as an evolutionary principle.,'' {\em
+  Proceedings of the Royal Society B Biological Sciences}, vol.~267, no.~1459,
+  pp.~2281--6, 2011.
+
+\bibitem{Stern1999Emergence}
+M.~D. Stern, ``Emergence of homeostasis and "noise imprinting" in an evolution
+  model.,'' {\em Proceedings of the National Academy of Sciences of the United
+  States of America}, vol.~96, no.~19, pp.~10746--51, 1999.
+
+\bibitem{Cheng2003On}
+D.~Z. Cheng and L.~J. Zhang, ``On semi-tensor product of matrices and its
+  applications,'' {\em Acta Mathematicae Applicatae Sinica, English Series},
+  vol.~19, no.~2, pp.~219--228, 2003.
+
+\bibitem{Fornasini2013Observability}
+E.~Fornasini and M.~E. Valcher, ``Observability, reconstructibility and state
+  observers of boolean control networks,'' {\em IEEE Transactions on Automatic
+  Control}, vol.~58, no.~6, pp.~1390--1401, 2013.
+
+\bibitem{Laschov2012Controllability}
+D.~Laschov and M.~Margaliot, ``Controllability of boolean control networks via
+  perron-frobenius theory,'' {\em Automatica}, vol.~48, no.~6, p.~1218¨C1223,
+  2012.
+
+\bibitem{Akutsu2007Control}
+T.~Akutsu, M.~Hayashida, W.~K. Ching, and M.~K. Ng, ``Control of boolean
+  networks: hardness results and algorithms for tree structured networks.,''
+  {\em Journal of Theoretical Biology}, vol.~244, no.~4, pp.~670--9, 2007.
+
+\bibitem{Langmead2009Symbolic}
+C.~J. Langmead and S.~K. Jha, ``Symbolic approaches for finding control
+  strategies in boolean networks.,'' {\em Journal of Bioinformatics and
+  Computational Biology}, vol.~7, no.~2, pp.~323--38, 2009.
+
+\bibitem{Meng2015Controllability}
+M.~Meng, B.~Li, and J.~E. Feng, ``Controllability and observability of singular
+  boolean control networks,'' {\em Circuits, Systems, and Signal Processing},
+  vol.~34, no.~4, pp.~1233--1248, 2015.
+
+\bibitem{Li2011Controllability}
+F.~Li and J.~Sun, ``Controllability of boolean control networks with time
+  delays in states ¡î,'' {\em Automatica}, vol.~47, no.~3, pp.~603--607, 2011.
+
+\bibitem{Cheng2011Realization}
+D.~Cheng, H.~Qi, and Z.~Li, {\em Realization of Boolean Control Networks}.
+\newblock Springer London, 2011.
+
+\bibitem{Cheng2011Stability}
+D.~Cheng, H.~Qi, Z.~Li, and J.~B. Liu, ``Stability and stabilization of boolean
+  networks,'' {\em International Journal of Robust Nonlinear Control}, vol.~21,
+  no.~2, pp.~134--156, 2011.
+
+\bibitem{Guo2015Set}
+Y.~Guo, P.~Wang, W.~Gui, and C.~Yang, ``Set stability and set stabilization of
+  boolean control networks based on invariant subsets ¡î,'' {\em Automatica},
+  vol.~61, pp.~106--112, 2015.
+
+\bibitem{Rui2013State}
+L.~Rui, Y.~Meng, and T.~Chu, ``State feedback stabilization for boolean control
+  networks,'' {\em IEEE Transactions on Automatic Control}, vol.~58, no.~7,
+  pp.~1853--1857, 2013.
+
+\bibitem{Cheng2011Analysis}
+D.~Cheng, H.~Qi, and Z.~Li, {\em Analysis and Control of {Boolean} Networks}.
+\newblock Springer London, 2011.
+
+\bibitem{Li2013Output}
+H.~Li and Y.~Wang, ``Output feedback stabilization control design for boolean
+  control networks ¡î,'' {\em Automatica}, vol.~49, no.~12, pp.~3641--3645,
+  2013.
+
+\end{thebibliography}

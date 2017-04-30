@@ -1,0 +1,120 @@
+\begin{thebibliography}{10}
+
+\bibitem{Golomb2002Shift}
+S.~W. Golomb, {\em Shift Register Sequences}.
+\newblock Springer US, 2002.
+
+\bibitem{Dubrova2008On}
+E.~Dubrova, M.~Teslenko, and H.~Tenhunen, ``On analysis and synthesis of
+  (n,k)-non-linear feedback shift registers,'' {\em Design Automation \& Test
+  in Europe}, pp.~1286--1291, 2008.
+
+\bibitem{Cheng2011Analysis}
+D.~Cheng, H.~Qi, and Z.~Li, {\em Analysis and Control of {Boolean} Networks}.
+\newblock Springer London, 2011.
+
+\bibitem{Zhao2013Aggregation}
+Y.~Zhao, J.~Kim, and M.~Filippone, ``Aggregation algorithm towards large-scale
+  {Boolean} network analysis,'' {\em IEEE Transactions on Automatic Control},
+  vol.~58, no.~8, pp.~1976--1985, 2013.
+
+\bibitem{Wang2012A}
+Y.~Wang, C.~Zhang, and Z.~Liu, ``A matrix approach to graph maximum stable set
+  and coloring problems with application to multi-agent systems,'' {\em
+  Automatica}, vol.~48, no.~7, pp.~1227--1236, 2012.
+
+\bibitem{Zhong2015Finding}
+J.~Zhong, J.~Lu, C.~Huang, L.~Li, and J.~Cao, ``Finding graph minimum stable
+  set and core via semi-tensor product approach,'' {\em Neurocomputing},
+  vol.~174, pp.~588--596, 2015.
+
+\bibitem{Han2015Calculation}
+X.~Han, Z.~Chen, Z.~Liu, and Q.~Zhang, ``Calculation of siphons and minimal
+  siphons in {Petri} nets based on semi-tensor product of matrices,'' {\em IEEE
+  Transactions on Systems Man \& Cybernetics Systems}, pp.~1--6, 2015.
+
+\bibitem{Guo2015Set}
+Y.~Guo, P.~Wang, W.~Gui, and C.~Yang, ``Set stability and set stabilization of
+  {Boolean} control networks based on invariant subsets ¡î,'' {\em Automatica},
+  vol.~61, pp.~106--112, 2015.
+
+\bibitem{Fornasini2013On}
+E.~Fornasini and M.~E. Valcher, ``On the periodic trajectories of {Boolean}
+  control networks ¡î,'' {\em Automatica}, vol.~49, no.~5, p.~1506¨C1509, 2013.
+
+\bibitem{Zhong2014Stability}
+J.~Zhong and D.~Lin, ``Stability of nonlinear feedback shift registers,'' in
+  {\em IEEE International Conference on Information and Automation},
+  pp.~671--676, 2014.
+
+\bibitem{Zhao2014Novel}
+D.~W. Zhao, H.~P. Peng, L.~X. Li, S.~L. Hui, and Y.~X. Yang, ``Novel way to
+  research nonlinear feedback shift register,'' {\em Science China Information
+  Sciences}, vol.~57, no.~9, pp.~1--14, 2014.
+
+\bibitem{Zhong2014Synchronization}
+J.~Zhong, J.~Lu, T.~Huang, and J.~Cao, ``Synchronization of master¨cslave
+  {Boolean} networks with impulsive effects: Necessary and sufficient
+  criteria,'' {\em Neurocomputing}, vol.~143, no.~143, pp.~269--274, 2014.
+
+\bibitem{Zhang2014Synchronization}
+H.~Zhang, X.~Wang, and X.~Lin, ``Synchronization of {Boolean} networks with
+  different update schemes,'' {\em IEEE/ACM Transactions on Computational
+  Biology \& Bioinformatics}, vol.~11, no.~5, p.~965, 2014.
+
+\bibitem{Liu2016Sampled}
+Y.~Liu, J.~Cao, L.~Sun, and J.~Lu, ``Sampled-data state feedback stabilization
+  of {Boolean} control networks,'' {\em Neural Computation}, vol.~28, no.~4,
+  pp.~778--799, 2016.
+
+\bibitem{Li2014Stability}
+H.~Li, Y.~Wang, and Z.~Liu, ``Stability analysis for switched {Boolean}
+  networks under arbitrary switching signals,'' {\em IEEE Transactions on
+  Automatic Control}, vol.~59, no.~7, pp.~1978--1982, 2014.
+
+\bibitem{Li2016Feedback}
+F.~Li and Z.~Yu, ``Feedback control and output feedback control for the
+  stabilisation of switched {Boolean} networks,'' {\em International Journal of
+  Control}, vol.~89, no.~2, pp.~337--342, 2016.
+
+\bibitem{Bof2015Output}
+N.~Bof, E.~Fornasini, and M.~E. Valcher, ``Output feedback stabilization of
+  {Boolean} control networks ¡î,'' {\em Automatica}, vol.~57, no.~C,
+  pp.~21--28, 2015.
+
+\bibitem{Lu2016On}
+J.~Lu, J.~Zhong, D.~W.~C. Ho, Y.~Tang, and J.~Cao, ``On controllability of
+  delayed {Boolean} control networks,'' {\em Siam Journal on Control \&
+  Optimization}, vol.~54, no.~2, pp.~475--494, 2016.
+
+\bibitem{Zhong2016Controllability}
+J.~Zhong, J.~Lu, T.~Huang, and D.~W. Ho, ``Controllability and synchronization
+  analysis of identical-hierarchy mixed-valued logical control networks.,''
+  {\em IEEE Transactions on Cybernetics}, doi:10.1109/TCYB.2016.2560240, in
+  press.
+
+\bibitem{Liu2015Controllability}
+Y.~Liu, H.~Chen, J.~Lu, and B.~Wu, ``Controllability of probabilistic {Boolean}
+  control networks based on transition probability matrices ¡î,'' {\em
+  Automatica}, vol.~52, no.~C, pp.~340--345, 2015.
+
+\bibitem{Li2016On}
+H.~Li, L.~Xie, and Y.~Wang, ``On robust control invariance of {Boolean} control
+  networks,'' {\em Automatica}, vol.~68, no.~C, pp.~392--396, 2016.
+
+\bibitem{Laschov2013Observability}
+D.~Laschov, M.~Margaliot, and G.~Even, ``Observability of {Boolean} networks: A
+  graph-theoretic approach ¡î,'' {\em Automatica}, vol.~49, no.~8,
+  pp.~2351--2362, 2013.
+
+\bibitem{Zhang2013Controllability}
+L.~Zhang and K.~Zhang, ``Controllability and observability of {Boolean} control
+  networks with time-variant delays in states,'' {\em IEEE Transactions on
+  Neural Networks \& Learning Systems}, vol.~24, no.~9, p.~1478, 2013.
+
+\bibitem{Cheng2011Stability}
+D.~Cheng, H.~Qi, Z.~Li, and J.~B. Liu, ``Stability and stabilization of
+  {Boolean} networks,'' {\em International Journal of Robust \& Nonlinear
+  Control}, vol.~21, no.~2, pp.~134--156, 2011.
+
+\end{thebibliography}

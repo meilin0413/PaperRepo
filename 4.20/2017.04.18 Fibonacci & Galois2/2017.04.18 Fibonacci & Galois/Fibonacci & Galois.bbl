@@ -1,0 +1,156 @@
+\begin{thebibliography}{10}
+
+\bibitem{shu2015privacy}
+X.~Shu, D.~Yao, and E.~Bertino, ``Privacy-preserving detection of sensitive
+  data exposure,'' {\em IEEE Transactions on Information Forensics and
+  Security}, vol.~10, no.~5, pp.~1092--1103, 2015.
+
+\bibitem{dunning2013privacy}
+L.~A. Dunning and R.~Kresman, ``Privacy preserving data sharing with anonymous
+  id assignment,'' {\em IEEE Transactions on Information Forensics and
+  Security}, vol.~8, no.~2, pp.~402--413, 2013.
+
+\bibitem{goresky2012algebraic}
+M.~Goresky and A.~Klapper, {\em Algebraic shift register sequences}.
+\newblock Cambridge University Press, 2012.
+
+\bibitem{golomb1982shift}
+S.~W. Golomb {\em et~al.}, {\em Shift register sequences}.
+\newblock Aegean Park Press, 1982.
+
+\bibitem{goresky2006pseudonoise}
+M.~Goresky and A.~Klapper, ``Pseudonoise sequences based on algebraic feedback
+  shift registers,'' {\em IEEE Transactions on Information Theory}, vol.~52,
+  no.~4, pp.~1649--1662, 2006.
+
+\bibitem{Li2014The}
+C.~Li, X.~Zeng, T.~Helleseth, C.~Li, and L.~Hu, ``The properties of a class of
+  linear {FSRs} and their applications to the construction of nonlinear
+  {FSRs},'' {\em IEEE Transactions on Information Theory}, vol.~60, no.~60,
+  pp.~3052--3061, 2014.
+
+\bibitem{massey1969shift}
+J.~Massey, ``Shift-register synthesis and {BCH} decoding,'' {\em IEEE
+  transactions on Information Theory}, vol.~15, no.~1, pp.~122--127, 1969.
+
+\bibitem{meier1989fast}
+W.~Meier and O.~Staffelbach, ``Fast correlation attacks on certain stream
+  ciphers,'' {\em Journal of Cryptology}, vol.~1, no.~3, pp.~159--176, 1989.
+
+\bibitem{hell2007grain}
+M.~Hell, T.~Johansson, and W.~Meier, ``Grain: a stream cipher for constrained
+  environments,'' {\em International Journal of Wireless and Mobile Computing},
+  vol.~2, no.~1, pp.~86--93, 2007.
+
+\bibitem{gammel2006nlfsr}
+B.~M. Gammel, R.~Gottfert, and O.~Kniffler, ``An {NLFSR}-based stream cipher,''
+  {\em IEEE International Symposium on Circuits and Systems}, pp.~4--pp, 2006.
+
+\bibitem{chen2004dragon}
+K.~Chen, M.~Henricksen, W.~Millan, J.~Fuller, L.~Simpson, E.~Dawson, H.~Lee,
+  and S.~Moon, ``Dragon: A fast word based stream cipher,'' {\em International
+  Conference on Information Security and Cryptology}, pp.~33--50, 2004.
+
+\bibitem{gammel2007achterbahn}
+B.~Gammel, R.~G{\"o}ttfert, and O.~Kniffler, ``Achterbahn-128/80: Design and
+  analysis,'' {\em ECRYPT Network of Excellence-SASC Workshop Record},
+  pp.~152--165, 2007.
+
+\bibitem{Dubrova2010Finding}
+E.~Dubrova, ``Finding matching initial states for equivalent {NLFSRs} in the
+  {Fibonacci} and the {Galois} configurations,'' {\em IEEE Transactions on
+  Information Theory}, vol.~56, no.~6, pp.~2961--2966, 2010.
+
+\bibitem{Dubrova2009A}
+E.~Dubrova, ``A transformation from the fibonacci to the galois {NLFSRs},''
+  {\em IEEE Transactions on Information Theory}, vol.~55, no.~11,
+  pp.~5263--5271, 2009.
+
+\bibitem{zhiqiang2013transformation}
+Z.~Lin, ``The transformation from the {Galois} {NLFSR} to the {Fibonacci}
+  configuration,'' {\em Emerging Intelligent Data and Web Technologies (EIDWT),
+  2013 Fourth International Conference on}, pp.~335--339, 2013.
+
+\bibitem{Cheng2011Analysis}
+D.~Cheng, H.~Qi, and Z.~Li, {\em Analysis and Control of {Boolean} Networks}.
+\newblock Springer London, 2011.
+
+\bibitem{lu2016controllability}
+J.~Lu, J.~Zhong, D.~W. Ho, Y.~Tang, and J.~Cao, ``On controllability of delayed
+  {Boolean} control networks,'' {\em SIAM Journal on Control and Optimization},
+  vol.~54, no.~2, pp.~475--494, 2016.
+
+\bibitem{lu2016pinning}
+J.~Lu, J.~Zhong, C.~Huang, and J.~Cao, ``On pinning controllability of
+  {Boolean} control networks,'' {\em IEEE Transactions on Automatic Control},
+  vol.~61, no.~6, pp.~1658--1663, 2016.
+
+\bibitem{zhong2014synchronization}
+J.~Zhong, J.~Lu, Y.~Liu, and J.~Cao, ``Synchronization in an array of
+  output-coupled {Boolean} networks with time delay,'' {\em IEEE Transactions
+  on Neural Networks and Learning Systems}, vol.~25, no.~12, pp.~2288--2294,
+  2014.
+
+\bibitem{Liu2016Sampled}
+Y.~Liu, J.~Cao, L.~Sun, and J.~Lu, ``Sampled-data state feedback stabilization
+  of {Boolean} control networks,'' {\em Neural Computation}, vol.~28, no.~4,
+  p.~778, 2016.
+
+\bibitem{li2011controllability}
+F.~Li and J.~Sun, ``Controllability of {Boolean} control networks with time
+  delays in states,'' {\em Automatica}, vol.~47, no.~3, pp.~603--607, 2011.
+
+\bibitem{cheng2009controllability}
+D.~Cheng and H.~Qi, ``Controllability and observability of {Boolean} control
+  networks,'' {\em Automatica}, vol.~45, no.~7, pp.~1659--1667, 2009.
+
+\bibitem{laschov2012controllability}
+D.~Laschov and M.~Margaliot, ``Controllability of {Boolean} control networks
+  via the perron--frobenius theory,'' {\em Automatica}, vol.~48, no.~6,
+  pp.~1218--1223, 2012.
+
+\bibitem{li2015output}
+H.~Li, Y.~Wang, and L.~Xie, ``Output tracking control of {Boolean} control
+  networks via state feedback: Constant reference signal case,'' {\em
+  Automatica}, vol.~59, pp.~54--59, 2015.
+
+\bibitem{cheng2011stability}
+D.~Cheng, H.~Qi, Z.~Li, and J.~B. Liu, ``Stability and stabilization of
+  {Boolean} networks,'' {\em International Journal of Robust and Nonlinear
+  Control}, vol.~21, no.~2, pp.~134--156, 2011.
+
+\bibitem{Li2015Controllability}
+H.~Li and Y.~Wang, ``Controllability analysis and control design for switched
+  {Boolean} networks with state and input constraints,'' {\em Siam Journal on
+  Control \& Optimization}, vol.~53, no.~5, pp.~2955--2979, 2015.
+
+\bibitem{liu2014controllability}
+Y.~Liu, H.~Chen, and B.~Wu, ``Controllability of {Boolean} control networks
+  with impulsive effects and forbidden states,'' {\em Mathematical Methods in
+  the Applied Sciences}, vol.~37, no.~1, pp.~1--9, 2014.
+
+\bibitem{guo2013semi}
+P.~Guo, Y.~Wang, and H.~Li, ``A semi-tensor product approach to finding {Nash}
+  equilibria for static games,'' in {\em Control Conference (CCC), 2013 32nd
+  Chinese}, pp.~107--112, IEEE, 2013.
+
+\bibitem{Zhong2014A}
+J.~Zhong and D.~Lin, ``A new linearization method for nonlinear feedback shift
+  registers,'' {\em Journal of Computer System Sciences}, vol.~81, no.~4,
+  pp.~783--796, 2014.
+
+\bibitem{Zhong2014Stability}
+J.~Zhong and D.~Lin, ``Stability of nonlinear feedback shift registers,'' {\em
+  IEEE International Conference on Information and Automation}, 2014.
+
+\bibitem{Zhong2016Driven}
+J.~Zhong and D.~Lin, ``{Driven} stability of nonlinear feedback shift registers
+  with inputs,'' {\em IEEE Transactions on Communications}, vol.~64, no.~6,
+  pp.~2274--2284, 2016.
+
+\bibitem{dawei2014novel}
+D.~Zhao, H.~Peng, L.~Li, S.~Hui, and Y.~Yang, ``Novel way to research nonlinear
+  feedback shift register,'' {\em Science China Information Sciences}, vol.~57,
+  no.~9, pp.~92114--092114, 2014.
+
+\end{thebibliography}
